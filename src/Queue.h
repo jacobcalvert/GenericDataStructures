@@ -1,5 +1,6 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
+#include "GenericDefinitions.h"
 #include <exception>
 class DequeueException:public std::exception
 {
@@ -32,15 +33,6 @@ enum QueueType
 {
 	QueueType_FINITE = 0,
 	QueueType_INFINITE
-};
-template <typename T>
-class Node
-{
-public:
-	Node():next(0),prev(0){}
-	~Node(){}
-	T data;
-	Node* next, *prev;
 };
 template <typename T>
 class Queue

@@ -4,10 +4,10 @@ This is a collection of generic templated data structures. The reason? Just beca
 Structures Done
 ====================
 * Queue
+* Stack
 
 Structures Planned
 ====================
-* Stack
 * Heap
 * List
 
