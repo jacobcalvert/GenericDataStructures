@@ -1,8 +1,7 @@
-#include "Queue.h"
-#include "Stack.h"
+#include "tests.h"
 #include "stdio.h"
 int main()
 {
-
+	test_all();
 	return 0;
 }

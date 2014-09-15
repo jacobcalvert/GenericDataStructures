@@ -47,6 +47,13 @@ public:
 	Queue(QueueType type, unsigned int capacity):m_Type(type), m_Capacity(capacity),m_Size(0),m_Head(0),m_Tail(0)
 	{
 	}
+	~Queue()
+	{
+		while(!this->is_empty())
+		{
+			this->dequeue();
+		}
+	}
 	unsigned int size(){return m_Size;}
 	unsigned int capacity(){return m_Capacity;}
 	bool enqueue(T data)
@@ -76,7 +83,7 @@ public:
 	T dequeue()
 	{
 		T data;
-		if(m_Head == m_Tail == 0)
+		if((m_Head == m_Tail) && m_Head == 0)
 		{
 			DequeueException e("Dequeue called on empty queue.");
 			throw e;
