@@ -29,6 +29,19 @@ public:
 		return m_What;
 	}
 };
+class PeekException:public std::exception
+{
+public:
+	PeekException(char * what):m_What(what)
+	{
+
+	}
+	char* m_What;
+	virtual const char* what() const throw()
+	{
+		return m_What;
+	}
+};
 enum StackType
 {
 	StackType_INFINTE = 0,
@@ -44,6 +57,10 @@ public:
 	{}
 	Stack(StackType type, unsigned int capacity):m_Head(0),m_Tail(0),m_Size(0),m_Capacity(capacity),m_Type(type)
 	{}
+	~Stack()
+	{
+		this->empty();
+	}
 	bool is_full()
 	{
 		if(m_Type == StackType_FINITE && m_Size == m_Capacity)
@@ -55,6 +72,23 @@ public:
 	bool is_empty()
 	{
 		return m_Size == 0;
+	}
+	unsigned int size(){return m_Size;}
+	unsigned int capacity(){return m_Capacity;}
+	void empty()
+	{
+		while(!this->is_empty())
+		{
+			this->pop();
+		}
+	}
+	T peek()
+	{
+		if((m_Head == m_Tail) && m_Head == 0)
+		{
+			PeekException e("Peek called on empty stack");
+		}
+		return m_Head->data;
 	}
 	bool push(T data)
 	{
@@ -86,7 +120,6 @@ public:
 		T data;
 		if((m_Head == m_Tail) && m_Head == 0)
 		{
-			//TODO: raise exc
 			PopException e("Pop called on empty stack.");
 			throw e;
 		}
@@ -114,6 +147,34 @@ public:
 
 
 		return data;
+	}
+	bool operator!=(const Stack<T> &rhs)
+	{
+		return !(*this == rhs);
+	}
+	bool operator==(const Stack<T> &rhs)
+	{
+		if(rhs.m_Size != m_Size)
+		{
+			return false;
+		}
+		else
+		{
+			Node<T> *p = m_Head, *q = rhs.m_Head;
+			for(unsigned int i = 0; i < m_Size; i ++)
+			{
+				if(p->data != q->data)
+				{
+					return false;
+				}
+				else
+				{
+					p = p->next;
+					q = q->next;
+				}
+			}
+		}
+		return true;
 	}
 private:
 	Node<T>* m_Head, *m_Tail;

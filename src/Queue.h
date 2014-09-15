@@ -49,13 +49,17 @@ public:
 	}
 	~Queue()
 	{
+		this->empty();
+	}
+	unsigned int size(){return m_Size;}
+	unsigned int capacity(){return m_Capacity;}
+	void empty()
+	{
 		while(!this->is_empty())
 		{
 			this->dequeue();
 		}
 	}
-	unsigned int size(){return m_Size;}
-	unsigned int capacity(){return m_Capacity;}
 	bool enqueue(T data)
 	{
 		if(m_Type != QueueType_INFINITE && m_Size == m_Capacity)
@@ -120,7 +124,34 @@ public:
 		}
 		return false;
 	}
-
+	bool operator!=(const Queue<T> &rhs)
+	{
+		return !(*this == rhs);
+	}
+	bool operator==(const Queue<T> &rhs)
+	{
+		if(rhs.m_Size != m_Size)
+		{
+			return false;
+		}
+		else
+		{
+			Node<T> *p = m_Head, *q = rhs.m_Head;
+			for(unsigned int i = 0; i < m_Size; i ++)
+			{
+				if(p->data != q->data)
+				{
+					return false;
+				}
+				else
+				{
+					p = p->next;
+					q = q->next;
+				}
+			}
+		}
+		return true;
+	}
 private:
 
 	QueueType m_Type;
