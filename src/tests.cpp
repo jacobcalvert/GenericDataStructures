@@ -2,6 +2,7 @@
 #include "stdio.h"
 #include "Queue.h"
 #include "Stack.h"
+#include "List.h"
 #include <string>
 #include <exception>
 bool test_queue()
@@ -26,6 +27,14 @@ bool test_queue()
 	while(i++ < lim)
 	{
 		q2.enqueue(i);
+	}
+	if(q2.size() != lim)
+	{
+		return false;
+	}
+	if(q2.capacity() != lim)
+	{
+		return false;
 	}
 	while(!q2.is_empty())
 	{
@@ -76,8 +85,6 @@ bool test_queue()
 	{
 		return false;
 	}
-	//TODO: test size();
-	//TODO: test capacity();
 
 	return true;
 }
@@ -103,6 +110,14 @@ bool test_stack()
 	while(i++ < lim)
 	{
 		s2.push(i);
+	}
+	if(s2.size() != lim)
+	{
+		return false;
+	}
+	if(s2.capacity() != lim)
+	{
+		return false;
 	}
 	while(!s2.is_empty())
 	{
@@ -138,13 +153,59 @@ bool test_stack()
 	{
 		return false;
 	}
-	//TODO: test peek();
-	//TODO: test size();
-	//TODO: test capacity();
+	Stack<int> C;
+	C.push(1);
+	if(C.peek() != 1)
+	{
+		return false;
+	}
+	C.push(2);
+	if(C.peek()!= 2)
+	{
+		return false;
+	}
+	C.pop();
+	if(C.peek() != 1)
+	{
+		return false;
+	}
+	return true;
+}
+bool test_list()
+{
+	List<int> l;
+	int i = 0, lim = 1000;
+	while(i < lim)
+	{
+		l.append(i);
+		i++;
+	}
+	if(l.size() != lim)
+	{
+		return false;
+	}
+	i = 0;
+	while(i < l.size())
+	{
+		if(i != l[i])
+		{
+			return false;
+		}
+		i++;
+	}
+	i = 0;
+	while(--i > (-lim))
+	{
+		if(l[i] != lim + i)
+		{
+			return false;
+		}
+	}
 	return true;
 }
 bool test_all()
 {
 	printf("Test Stack: %s\n",  test_stack()?"PASS":"FAIL");
 	printf("Test Queue: %s\n",  test_queue()?"PASS":"FAIL");
+	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
 }
