@@ -33,7 +33,55 @@ public:
 		m_Storage[m_Size ++] = data;
 		return true;
 	}
-	T& operator [](int index)
+	bool replace(int index, T data)
+	{
+		if(index > (int) m_Size || -index > (int) m_Size)
+		{
+			IndexException e("Index out of bounds.");
+			throw e;
+		}
+		else
+		{
+			if (index < 0)
+			{
+				index = m_Size + index;
+				m_Storage[index] = data;
+			}
+			else
+			{
+				m_Storage[index] = data;
+			}
+		}
+		return true;
+	}
+	bool remove(int index)
+	{
+		if(index > (int) m_Size || -index > (int) m_Size)
+		{
+			IndexException e("Index out of bounds.");
+			throw e;
+		}
+		else
+		{
+			if (index < 0)
+			{
+				index = m_Size + index;
+				m_Storage[index] = NULL;
+			}
+			else
+			{
+				m_Storage[index] = NULL;
+			}
+		}
+		m_Size --;
+
+		if(m_Size < m_Capacity/(2*SCALING_FACTOR))
+		{
+			this->resize(-SCALING_FACTOR);
+		}
+		return true;
+	}
+	T operator [](int index) //get
 	{
 		T data;
 		if(index > (int) m_Size || -index > (int) m_Size)
@@ -57,6 +105,28 @@ public:
 		return data;
 	}
 	unsigned int size(){return m_Size;}
+	bool operator==(List& rhs)
+	{
+		if(m_Size != rhs.size())
+		{
+			return false;
+		}
+		else
+		{
+			for(int i = 0; i < m_Size; i++)
+			{
+				if(m_Storage[i] != rhs[i])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	bool operator!=(List& rhs)
+	{
+		return !(*this == rhs);
+	}
 private:
 	unsigned int m_Size, m_Capacity;
 	static unsigned int DEFAULT_CAPACITY, SCALING_FACTOR;
@@ -78,15 +148,20 @@ private:
 		else
 		{
 			//decreasing
-			T* n_arr = new T[m_Capacity * (1/(-scale))];  //scale of -2 indicates halving the size (1/2)
-			m_Capacity = m_Capacity * (1/(-scale));
+			scale = -scale;
+			int factor = m_Capacity/scale;
+			T* n_arr = new T[factor];  //scale of -2 indicates halving the size (1/2)
+			//printf("Scaling from %u to %u.\n", m_Capacity, factor);
+			m_Capacity = factor;
 			for(int i = 0; i < m_Size; i++)
 			{
 				n_arr[i] = m_Storage[i];
 			}
+
 			m_Storage = n_arr;
 		}
 	}
+
 
 
 };

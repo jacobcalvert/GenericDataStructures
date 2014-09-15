@@ -201,6 +201,66 @@ bool test_list()
 			return false;
 		}
 	}
+	i = 0;
+	while (i < l.size())
+	{
+		l.replace(i, 0);
+		i++;
+
+	}
+	i = 0;
+	while(i < l.size())
+	{
+		if(l[i] != 0)
+		{
+			return false;
+		}
+		i++;
+	}
+	while(l.size() > 100)
+	{
+		l.remove(-1);
+	}
+	i = 0;
+	while (i < l.size())
+	{
+		l.replace(i, i);
+		i++;
+
+	}
+	i = 0;
+	while(i < l.size())
+	{
+		if(l[i] != i)
+		{
+			return false;
+		}
+		i++;
+	}
+
+	List<int> A, B;
+	i = 0;
+
+	while(i < lim)
+	{
+		A.append(i);
+		B.append(i);
+		i++;
+	}
+	if((A != B))
+	{
+		return false;
+	}
+	B.remove(-1);
+	if(A == B)
+	{
+		return false;
+	}
+	B.append(0);
+	if(A==B)
+	{
+		return false;
+	}
 	return true;
 }
 bool test_all()
