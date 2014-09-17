@@ -337,6 +337,20 @@ void bin_sort()
 
 	printf("Sorted %lld random numbers in range [0, %lld) using bin sort and queues in %lld seconds\n", size,lim,  (eT-sT));
 	printf("SAMPLE: [%lld, %lld, %lld, %lld,...\n", arr[0], arr[1], arr[2], arr[3]);
+	really_long_list(arr, size);
+}
+void really_long_list(long long * arr, long long len)
+{
+	List<long long> list;
+	printf("Initial list size: %d\n", list.size());
+	long long i = 0;
+	printf("Appending all values from sorted array to list...\n");
+	while(i < len)
+	{
+		list.append(arr[i++]);
+	}
+	printf("Current list size: %d\n", list.size());
+	printf("SAMPLE: [%lld, %lld, %lld, %lld,... (should match from above)\n", list[0], list[1], list[2], list[3]);
 }
 void functional_tests()
 {
