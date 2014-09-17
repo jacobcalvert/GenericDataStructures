@@ -5,6 +5,9 @@
 #include "List.h"
 #include <string>
 #include <exception>
+#include <stdlib.h>
+#include <time.h>
+
 bool test_queue()
 {
 	Queue<int> q1;
@@ -263,9 +266,90 @@ bool test_list()
 	}
 	return true;
 }
+void reverse_a_list()
+{
+	List<int> list;
+	int i = 1, lim = 20;
+	for(;i<lim; i++)
+	{
+		list.append(i);
+	}
+	printf("List contains: [");
+	i = 0;
+	while(i < list.size()-1)
+	{
+		printf("%d, ", list[i]);
+		i++;
+	}
+	printf("%d]\n", list[list.size()-1]);
+	Stack<int> s1, s2;
+	i = 0;
+	while(i < list.size())
+	{
+		s1.push(list[i++]);
+	}
+	i = 0;
+	while(!s1.is_empty())
+	{
+		list.replace(i++, s1.pop());
+	}
+	printf("List reversed: [");
+	i = 0;
+	while(i < list.size()-1)
+	{
+		printf("%d, ", list[i]);
+		i++;
+	}
+	printf("%d]\n", list[list.size()-1]);
+
+
+}
+void bin_sort()
+{
+
+	long long size = 100000, lim = size;
+	long long arr[size], sT, eT;
+	Queue<long long> bins[lim];
+	long long i = 0;
+	while(i< size)
+	{
+		arr[i++] = rand() % lim;
+		//printf("%d\n",arr[i-1]);
+	}
+	sT = time(NULL);
+	for(long long i = 0; i < size; i++)
+	{
+		bins[arr[i]].enqueue(arr[i]);
+	}
+	long long k = 0;
+	for(long long i = 0; i < lim; i ++)
+	{
+
+		while(!bins[i].is_empty())
+		{
+			arr[k++] = bins[i].dequeue();
+			//printf("%d,",arr[k-1]);
+
+		}
+
+	}
+	eT = time(NULL);
+
+	printf("Sorted %lld random numbers in range [0, %lld) using bin sort and queues in %lld seconds\n", size,lim,  (eT-sT));
+	printf("SAMPLE: [%lld, %lld, %lld, %lld,...\n", arr[0], arr[1], arr[2], arr[3]);
+}
+void functional_tests()
+{
+	srand(time(NULL));
+	printf("FUNCTIONAL TESTS\n");
+	reverse_a_list();
+	bin_sort();
+}
 bool test_all()
 {
 	printf("Test Stack: %s\n",  test_stack()?"PASS":"FAIL");
 	printf("Test Queue: %s\n",  test_queue()?"PASS":"FAIL");
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
+	functional_tests();
+	return 1;
 }

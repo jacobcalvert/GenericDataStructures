@@ -127,6 +127,17 @@ public:
 	{
 		return !(*this == rhs);
 	}
+	bool contains(T data)
+	{
+		for(int i = 0; i < m_Size; i ++)
+		{
+			if(m_Storage[i] == data)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 private:
 	unsigned int m_Size, m_Capacity;
 	static unsigned int DEFAULT_CAPACITY, SCALING_FACTOR;
