@@ -3,6 +3,7 @@
 #include "Queue.h"
 #include "Stack.h"
 #include "List.h"
+#include "Heap.h"
 #include <string>
 #include <exception>
 #include <stdlib.h>
@@ -89,6 +90,28 @@ bool test_queue()
 		return false;
 	}
 
+	return true;
+}
+bool test_minheap()
+{
+	srand(time(NULL));
+	MinHeap<long long> minheap;
+	int lim = 1000;
+
+	for(long long i = 0; i < lim; i++)
+	{
+		minheap.insert(rand() % lim  + (rand() < (RAND_MAX/8)?-lim/10:lim));
+	}
+	printf("First 15 of 1000 sorted is = [");
+	for(long long i = 0; i < 15; i++)
+	{
+		printf("%lld,", minheap.remove_min());
+	}
+	printf("...]\n");
+
+	minheap.insert(12);minheap.insert(15);minheap.insert(11);minheap.insert(1);minheap.insert(12);
+
+	printf("heap find (15) = %s\n",minheap.find(15)?"TRUE":"FALSE");
 	return true;
 }
 bool test_stack()
@@ -364,6 +387,7 @@ bool test_all()
 	printf("Test Stack: %s\n",  test_stack()?"PASS":"FAIL");
 	printf("Test Queue: %s\n",  test_queue()?"PASS":"FAIL");
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
+	printf("Test MinHeap: %s\n",test_minheap()?"PASS":"FAIL");
 	functional_tests();
 	return 1;
 }

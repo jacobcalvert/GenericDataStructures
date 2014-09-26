@@ -9,7 +9,16 @@ public:
 	T data;
 	Node* next, *prev;
 };
-
+template <typename T>
+class TreeNode
+{
+public:
+	TreeNode():left(0), right(0), parent(0), valid(false)
+	{}
+	T data;
+	TreeNode *left, *right, *parent;
+	bool valid;
+};
 
 
 #endif /* GENERICDEFINITIONS_H_ */
