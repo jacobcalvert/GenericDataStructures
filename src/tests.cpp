@@ -5,6 +5,7 @@
 #include "List.h"
 #include "Heap.h"
 #include "RedBlackTree.h"
+#include "BinarySearchTree.h"
 #include <string>
 #include <exception>
 #include <stdlib.h>
@@ -101,20 +102,23 @@ bool test_minheap()
 
 	minheap.insert(12);minheap.insert(15);minheap.insert(11);minheap.insert(1);minheap.insert(12);
 
-	printf("heap find (15) = %s\n",minheap.find(15)?"TRUE":"FALSE");
+	if(DEBUG)printf("heap find (15) = %s\n",minheap.find(15)?"TRUE":"FALSE");
 	for(long long i = 0; i < lim; i++)
 	{
 		minheap.insert(rand() % lim  + (rand() < (RAND_MAX/8)?-lim/10:lim));
 	}
-	printf("First 15 of 1000 sorted is = [");
-	for(long long i = 0; i < 15; i++)
+	if(DEBUG)
 	{
-		printf("%lld,", minheap.remove_min());
+		printf("First 15 of 1000 sorted is = [");
+
+		for(long long i = 0; i < 15; i++)
+		{
+			printf("%lld,", minheap.remove_min());
+		}
+		printf("...]\n");
+
+		printf("get nth = %lld\n", minheap.get_nth(15));
 	}
-	printf("...]\n");
-
-	printf("get nth = %lld\n", minheap.get_nth(15));
-
 	return true;
 }
 bool test_stack()
@@ -326,6 +330,26 @@ bool test_redblack()
 	printf("\n");
 	return true;
 }
+bool test_bst()
+{
+	BinarySearchTree<int> bst;
+	int lim = 1000, i;
+	srand(time(NULL));
+	for(i = 0; i < lim; i ++)
+	{
+		bst.insert(rand() % lim + 1);
+	}
+	int *sorted = bst.inorder();
+	for(i = 1; i < lim; i++ )
+	{
+		if(sorted[i-1] > sorted[i]){return false;}
+	}
+
+	int n = sorted[rand() % (lim/2)];
+	if(!bst.find(n)) return false;
+
+	return true;
+}
 void reverse_a_list()
 {
 	List<int> list;
@@ -426,6 +450,7 @@ bool test_all()
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
 	printf("Test MinHeap: %s\n",test_minheap()?"PASS":"FAIL");
 	printf("Test RedBlack: %s\n", /*test_redblack()*/false?"PASS":"FAIL");
-	functional_tests();
+	printf("Test BST: %s\n", test_bst()?"PASS":"FAIL");
+	if(DEBUG)functional_tests();
 	return 1;
 }
