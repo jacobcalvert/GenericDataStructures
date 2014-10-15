@@ -40,7 +40,7 @@ Queue
 ### Features ###
 * finite and infinte sizes that are enforced in the object, set via the constructor
 * exceptioned for unsupported operations (dequeue when empty etc.)
-### Supported Methods###
+### Supported Methods ###
 
 <table>
 	<tr>
@@ -55,27 +55,61 @@ Queue
 		<td>enqueue(data)</td>
 		<td>enqueues(data) into the queue</td>
 	</tr>
-
+	<tr>
+		<td>dequeue()</td>
+		<td>dequeues an item</td>
+	</tr>
+	<tr>
+		<td>is_empty()</td>
+		<td>is it empty?</td>
+	</tr>
+	<tr>
+		<td>is_full()</td>
+		<td>is it full? (only valid with finite queues)</td>
+	</tr>
+	<tr>
+		<td>== & !=</td>
+		<td>performs a node-by-node comparison of the two queues</td>
+	</tr>
 
 </table>
-dequeue()| dequeues an item
-is_empty()| is it empty?
-is_full()| is it full? (only valid with finite queues)
-== & !=	| performs a node-by-node comparison of the two queues
 
 Stack
 -------------
-### Features
+### Features ###
 * finite and infinte sizes that are enforced in the object, set via the constructor
 * exceptioned for unsupported operations (pop when empty etc.)
-### Supported Methods
+### Supported Methods ###
 
-Method Name 	| Description
------------------------------------
-pop()		| removes and returns the top of the stack
-push(data)	| pushes(data) onto the top of the stack
-peek()		| look at the top item
-is_empty()	| is it empty?
-is_full()	| is it full? (only valid with finite stacks)
-== & !=		| performs a node-by-node comparison of the two stacks
+<table>
+	<tr>
+	<th>Method Name</th>
+	<th>Description</th>
+	</tr>
+	<tr>
+		<td>pop()</td>
+		<td>removes and returns the top of the stack</td>
+	</tr>
+	<tr>
+		<td>push(data)</td>
+		<td>pushed(data) onto the top of the stack</td>
+	</tr>
+	<tr>
+		<td>peek()</td>
+		<td>look at the top of the stack</td>
+	</tr>
+	<tr>
+		<td>is_empty()</td>
+		<td>is it empty?</td>
+	</tr>
+	<tr>
+		<td>is_full()</td>
+		<td>is it full? (only valid with finite stacks)</td>
+	</tr>
+	<tr>
+		<td>== & !=</td>
+		<td>performs a node-by-node comparison of the two stacks</td>
+	</tr>
+
+</table>
 
