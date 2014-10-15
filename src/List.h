@@ -58,7 +58,24 @@ public:
 		}
 		return true;
 	}
-	bool remove(int index)
+	int index_of(T data)
+	{
+		for(long long i = 0; i < m_Size; i++)
+		{
+			if(m_Storage[i] == data)
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+	bool remove(T data)
+	{
+		int index = index_of(data);
+		if(index == -1)return false;//not found
+		else return remove_at(index);
+	}
+	bool remove_at(int index)
 	{
 		if(index > (int) m_Size || -index > (int) m_Size)
 		{
@@ -67,16 +84,13 @@ public:
 		}
 		else
 		{
-			if (index < 0)
-			{
-				index = m_Size + index;
-				m_Storage[index] = NULL;
-			}
-			else
-			{
-				m_Storage[index] = NULL;
-			}
+			if(index < 0) index = m_Size + index;
 		}
+		for(long long i = index; i < m_Size-1; i++)
+		{
+			m_Storage[i] = m_Storage[i+1]; //move things down.
+		}
+
 		m_Size --;
 
 		if(m_Size < m_Capacity/(2*SCALING_FACTOR))

@@ -249,7 +249,7 @@ bool test_list()
 	}
 	while(l.size() > 100)
 	{
-		l.remove(-1);
+		l.remove_at(-1);
 	}
 	i = 0;
 	while (i < l.size())
@@ -281,7 +281,7 @@ bool test_list()
 	{
 		return false;
 	}
-	B.remove(-1);
+	B.remove_at(-1);
 	if(A == B)
 	{
 		return false;
@@ -290,8 +290,22 @@ bool test_list()
 	if(A==B)
 	{
 		return false;
+
 	}
+
+	List <int> C;
+	i = 1;
+	while(i <= lim){C.append(i++);}
+	long long n = (lim*(lim + 1))/2, sum = 0;
+	C.remove(1);
+	C.remove(2);
+	for(long long j = 0; j < C.size(); j++)
+	{
+		sum += C[j];
+	}
+	if(n - 3 !=  sum)return false;
 	return true;
+
 }
 bool test_redblack()
 {
@@ -411,7 +425,7 @@ bool test_all()
 	printf("Test Queue: %s\n",  test_queue()?"PASS":"FAIL");
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
 	printf("Test MinHeap: %s\n",test_minheap()?"PASS":"FAIL");
-	printf("Test RedBlack: %s\n", test_redblack()?"PASS":"FAIL");
+	printf("Test RedBlack: %s\n", /*test_redblack()*/false?"PASS":"FAIL");
 	functional_tests();
 	return 1;
 }
