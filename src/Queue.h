@@ -2,31 +2,40 @@
 #define QUEUE_H_
 #include "GenericDefinitions.h"
 #include <exception>
+#include <string>
 class DequeueException:public std::exception
 {
 
 public:
-	DequeueException(char* what):m_What(what)
+	DequeueException(std::string what):m_What(what)
 	{
 
 	}
-	char* m_What;
+	virtual ~DequeueException() throw()
+	{
+
+	}
+	std::string m_What;
 	virtual const char* what() const throw()
 	{
-		return m_What;
+		return m_What.c_str();
 	}
 };
 class EnqueueException:public std::exception
 {
 public:
-	EnqueueException(char * what):m_What(what)
+	EnqueueException(std::string what):m_What(what)
 	{
 
 	}
-	char* m_What;
+	virtual ~EnqueueException() throw()
+	{
+
+	}
+	std::string m_What;
 	virtual const char* what() const throw()
 	{
-		return m_What;
+		return m_What.c_str();
 	}
 };
 enum QueueType

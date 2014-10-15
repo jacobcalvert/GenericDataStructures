@@ -2,6 +2,7 @@ bool test_queue();
 bool test_stack();
 bool test_list();
 bool test_minheap();
+bool test_redblack();
 bool test_all();
 
 void reverse_a_list();

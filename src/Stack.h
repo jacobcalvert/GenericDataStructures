@@ -2,44 +2,55 @@
 #define STACK_H_
 #include "GenericDefinitions.h"
 #include <exception>
+#include <string>
 class PushException:public std::exception
 {
 
 public:
-	PushException(char* what):m_What(what)
+	PushException(std::string what):m_What(what)
 	{
 
 	}
-	char* m_What;
+	virtual ~PushException() throw()
+	{
+	}
+	std::string m_What;
 	virtual const char* what() const throw()
 	{
-		return m_What;
+		return m_What.c_str();
 	}
 };
 class PopException:public std::exception
 {
 public:
-	PopException(char * what):m_What(what)
+	PopException(std::string what):m_What(what)
 	{
 
 	}
-	char* m_What;
+	virtual ~PopException() throw()
+	{
+	}
+	std::string m_What;
 	virtual const char* what() const throw()
 	{
-		return m_What;
+		return m_What.c_str();
 	}
 };
 class PeekException:public std::exception
 {
 public:
-	PeekException(char * what):m_What(what)
+	PeekException(std::string what):m_What(what)
 	{
 
 	}
-	char* m_What;
+	virtual ~PeekException()throw()
+	{
+
+	}
+	std::string m_What;
 	virtual const char* what() const throw()
 	{
-		return m_What;
+		return m_What.c_str();
 	}
 };
 enum StackType

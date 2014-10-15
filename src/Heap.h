@@ -127,6 +127,7 @@ public:
 		}
 		if(prev_parent->right->valid)
 		{
+
 			to_remove = prev_parent->right;
 			m_Head->data = to_remove->data;
 			delete to_remove;
@@ -167,6 +168,59 @@ public:
 	{
 		m_Compare = func;
 	}
+	T get_nth(long long n)
+	{
+		if(n > m_Size)
+		{
+			GeneralHeapException e("Called get_nth(long long n) with n > heap size.");
+			throw e;
+		}
+		else
+		{
+			TreeNode<T> *p = m_Head;
+			while(n >=1)
+			{
+				int bit = n % 2;
+				n/=2;
+				if(bit == 1)
+				{
+					p = p->right;
+				}
+				else
+				{
+					p = p->left;
+				}
+			}
+			if(!p->valid)
+			{
+				GeneralHeapException e("Called get_nth(long long n) and reached an invalid node!");
+				throw e;
+			}
+			return p->data;
+		}
+	}
+	MinHeap<T> merge(MinHeap<T> &a, MinHeap<T> &b)
+	{
+		return a + b;
+	}
+
+	T* get_sorted_array()
+	{
+		T* arr = new T[m_Size];
+		MinHeap<T> temp;
+		long long i = 0;
+		while(this->size())
+		{
+			T tempd = this->remove_min();
+			temp->insert(tempd);
+			arr[i++] =tempd;
+		}
+		while(temp.size())
+		{
+			this->insert(temp.remove_min());
+		}
+		return arr;
+	}
 private:
 	static int default_compare(T &a, T &b)
 	{
@@ -192,7 +246,15 @@ private:
 		}
 		else
 		{
-			return find(data, p->left) || find(data, p->right);
+			if(p->data == data)
+			{
+				return true;
+			}
+			else
+			{
+				return find(data, p->left) || find(data, p->right);
+			}
+
 		}
 	}
 
@@ -200,7 +262,26 @@ private:
 	long long m_Size;
 	int (*m_Compare)(T&, T&);
 };
+template <typename T>
+MinHeap<T> operator+(const MinHeap<T> &h1, const MinHeap<T> &h2)
+	{
+		MinHeap<T> new_heap;
 
+		while(h1.size() || h2.size())
+		{
+			if(h1.size())
+			{
+				new_heap.insert(h1.remove_min());
+			}
+			if(h2.size())
+			{
+				new_heap.insert(h2.remove_min());
+			}
+
+		}
+
+		return new_heap;
+	}
 
 
 #endif /* HEAP_H_ */

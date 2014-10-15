@@ -11,6 +11,9 @@ Structures Done
 Structures Planned
 ====================
 * MaxHeap
+* Red-Black Tree
+* Binary Search Tree
+* ....???
 
 
 

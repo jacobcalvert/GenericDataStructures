@@ -4,6 +4,7 @@
 #include "Stack.h"
 #include "List.h"
 #include "Heap.h"
+#include "RedBlackTree.h"
 #include <string>
 #include <exception>
 #include <stdlib.h>
@@ -98,6 +99,9 @@ bool test_minheap()
 	MinHeap<long long> minheap;
 	int lim = 1000;
 
+	minheap.insert(12);minheap.insert(15);minheap.insert(11);minheap.insert(1);minheap.insert(12);
+
+	printf("heap find (15) = %s\n",minheap.find(15)?"TRUE":"FALSE");
 	for(long long i = 0; i < lim; i++)
 	{
 		minheap.insert(rand() % lim  + (rand() < (RAND_MAX/8)?-lim/10:lim));
@@ -109,9 +113,8 @@ bool test_minheap()
 	}
 	printf("...]\n");
 
-	minheap.insert(12);minheap.insert(15);minheap.insert(11);minheap.insert(1);minheap.insert(12);
+	printf("get nth = %lld\n", minheap.get_nth(15));
 
-	printf("heap find (15) = %s\n",minheap.find(15)?"TRUE":"FALSE");
 	return true;
 }
 bool test_stack()
@@ -136,6 +139,7 @@ bool test_stack()
 	while(i++ < lim)
 	{
 		s2.push(i);
+
 	}
 	if(s2.size() != lim)
 	{
@@ -289,6 +293,25 @@ bool test_list()
 	}
 	return true;
 }
+bool test_redblack()
+{
+	RedBlackTree<int> rbt;
+	int lim = 1000;
+	srand(time(NULL));
+	for(int i = 0; i < lim; i++)
+	{
+		rbt.insert((i + lim ) % lim);
+	}
+
+	int *sorted = rbt.inorder();
+	printf("\n");
+	for(int i = 0; i < 15; i++)
+	{
+		printf("%d", sorted[i]);
+	}
+	printf("\n");
+	return true;
+}
 void reverse_a_list()
 {
 	List<int> list;
@@ -388,6 +411,7 @@ bool test_all()
 	printf("Test Queue: %s\n",  test_queue()?"PASS":"FAIL");
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
 	printf("Test MinHeap: %s\n",test_minheap()?"PASS":"FAIL");
+	printf("Test RedBlack: %s\n", test_redblack()?"PASS":"FAIL");
 	functional_tests();
 	return 1;
 }

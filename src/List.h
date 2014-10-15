@@ -1,19 +1,23 @@
 #ifndef LIST_H_
 #define LIST_H_
 #include <exception>
-#include "stdio.h"
+#include <string>
 class IndexException:public std::exception
 {
 
 public:
-	IndexException(char* what):m_What(what)
+	IndexException(std::string what):m_What(what)
 	{
 
 	}
-	char* m_What;
+	virtual ~IndexException() throw()
+	{
+
+	}
+	std::string m_What;
 	virtual const char* what() const throw()
 	{
-		return m_What;
+		return m_What.c_str();
 	}
 };
 template <typename T>
@@ -139,7 +143,7 @@ public:
 		return false;
 	}
 private:
-	unsigned int m_Size, m_Capacity;
+	unsigned long long m_Size, m_Capacity;
 	static unsigned int DEFAULT_CAPACITY, SCALING_FACTOR;
 	T* m_Storage;
 
