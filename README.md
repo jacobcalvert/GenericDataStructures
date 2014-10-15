@@ -42,14 +42,14 @@ Queue
 * exceptioned for unsupported operations (dequeue when empty etc.)
 ### Supported Methods
 
-Method Name 	| Description
+Method Name | Description
 -----------------------------------
-empty()		| empties the queue
-enqueue(data)	| enqueues(data) into the queue
-dequeue()	| dequeues an item
-is_empty()	| is it empty?
-is_full()	| is it full? (only valid with finite queues)
-== & !=		| performs a node-by-node comparison of the two queues
+empty()	| empties the queue
+enqueue(data)| enqueues(data) into the queue
+dequeue()| dequeues an item
+is_empty()| is it empty?
+is_full()| is it full? (only valid with finite queues)
+== & !=	| performs a node-by-node comparison of the two queues
 
 Stack
 -------------
