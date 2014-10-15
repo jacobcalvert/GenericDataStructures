@@ -40,14 +40,24 @@ Queue
 ### Features ###
 * finite and infinte sizes that are enforced in the object, set via the constructor
 * exceptioned for unsupported operations (dequeue when empty etc.)
-
 ### Supported Methods###
 
+<table>
+	<tr>
+	<th>Method Name</th>
+	<th>Description</th>
+	</tr>
+	<tr>
+		<td>empty()</td>
+		<td>empties the queue</td>
+	</tr>
+	<tr>
+		<td>enqueue(data)</td>
+		<td>enqueues(data) into the queue</td>
+	</tr>
 
-Method Name | Description
------------------------------------
-empty()	| empties the queue
-enqueue(data)| enqueues(data) into the queue
+
+</table>
 dequeue()| dequeues an item
 is_empty()| is it empty?
 is_full()| is it full? (only valid with finite queues)
