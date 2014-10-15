@@ -37,10 +37,10 @@ Structures and Features
 
 Queue
 --------
-### Features
+### Features ###
 * finite and infinte sizes that are enforced in the object, set via the constructor
 * exceptioned for unsupported operations (dequeue when empty etc.)
-### Supported Methods
+### Supported Methods ###
 
 Method Name | Description
 -----------------------------------
