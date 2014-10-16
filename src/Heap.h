@@ -1,3 +1,13 @@
+/**
+ * @file   Heap.h
+ * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
+ * @date   September, 2014
+ * @brief  Implementation of a node based MinHeap structure
+ *
+ * The MinHeap structure is node based.
+ *
+ * The MaxHeap has not been implemented.
+ */
 #ifndef HEAP_H_
 #define HEAP_H_
 #include "GenericDefinitions.h"
@@ -26,18 +36,33 @@ template <typename T>
 class MinHeap
 {
 public:
+	/**
+	 * MinHeap constructor
+	 */
 	MinHeap():m_Head(0), m_Size(0)
 	{
 		m_Compare = default_compare;
 	}
+	/**
+	 * MinHeap destructor
+	 */
 	~MinHeap()
 	{}
+	/**
+	 * finds the value in the heap
+	 * returns true if it's found, false otherwise
+	 * @param data the data to search for
+	 */
 	bool find(T data)
 	{
 		bool found = false;
 		found = find(data, m_Head);
 		return found;
 	}
+	/**
+	 * inserts the data into the appropriate position in the heap
+	 * @param data the data to insert
+	 */
 	void insert(T data)
 	{
 		TreeNode<T> *new_node = new TreeNode<T>;
@@ -96,6 +121,10 @@ public:
 
 		m_Size++;
 	}
+	/**
+	 * removes the minimum item from the heap
+	 * also restores heap order
+	 */
 	T remove_min()
 	{
 		if(m_Size == 0)
@@ -163,11 +192,22 @@ public:
 		m_Size--;
 		return data;
 	}
+	/**
+	 * returns the size of the heap
+	 */
 	long long size(){return m_Size;}
+	/**
+	 * sets the comparator for the heap compare functions
+	 * @param func a function pointer to the comparator function
+	 */
 	void set_comparator(int (*func)(T&, T&))
 	{
 		m_Compare = func;
 	}
+	/**
+	 * returns the nth node in the heap
+	 * @param n the node number specifier
+	 */
 	T get_nth(long long n)
 	{
 		if(n > m_Size)
@@ -199,11 +239,18 @@ public:
 			return p->data;
 		}
 	}
+	/**
+	 * merges heap a and b together and returns the resulting heap
+	 * @param a the first heap
+	 * @param b the second heap
+	 */
 	MinHeap<T> merge(MinHeap<T> &a, MinHeap<T> &b)
 	{
 		return a + b;
 	}
-
+	/**
+	 * returns a sorted array from the heap items
+	 */
 	T* get_sorted_array()
 	{
 		T* arr = new T[m_Size];

@@ -1,3 +1,12 @@
+/**
+ * @file   GenericDefinitions.h
+ * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
+ * @date   September, 2014
+ * @brief  Definitions of generically used items in the project
+ *
+ * This file contains several definitions of common structures such as linked list
+ * nodes and tree nodes.
+ */
 #ifndef GENERICDEFINITIONS_H_
 #define GENERICDEFINITIONS_H_
 enum RedBlackTreeNodeColor
@@ -9,6 +18,9 @@ template <typename T>
 class Node
 {
 public:
+	/**
+	 * Node Constructor
+	 */
 	Node():next(0),prev(0){}
 	~Node(){}
 	T data;
@@ -18,6 +30,9 @@ template <typename T>
 class TreeNode
 {
 public:
+	/**
+	 * TreeNode constructor
+	 */
 	TreeNode():left(0), right(0), parent(0), valid(false)
 	{}
 	T data;
@@ -29,6 +44,9 @@ class
 RedBlackTreeNode
 {
 public:
+	/**
+	 * RedBlackTreeNode constructor
+	 */
 	RedBlackTreeNode():left(0),right(0),parent(0),valid(false),color(RedBlackTreeNodeColor_BLACK)
 	{}
 

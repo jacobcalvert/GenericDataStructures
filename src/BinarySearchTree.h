@@ -1,8 +1,11 @@
-/*
- * BinarySearchTree.h
+/**
+ * @file   BinarySearchTree.h
+ * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
+ * @date   October, 2014
+ * @brief  Implementation of a binary search tree
  *
- *  Created on: Oct 15, 2014
- *      Author: jacob
+ * This implemtation of the ADT BST is node based and provides many
+ * common BST operations
  */
 
 #ifndef BINARYSEARCHTREE_H_
@@ -31,11 +34,21 @@ template <typename T>
 class BinarySearchTree
 {
 public:
+	/**
+	 * BinarySearchTree constructor
+	 */
 	BinarySearchTree():m_Root(0), m_Size(0),m_Indexer(0), m_PreOrder(0), m_InOrder(0), m_PostOrder(0)
 	{}
+	/**
+	 * BinarySearchTree destructor
+	 */
 	~BinarySearchTree()
 	{
 	}
+	/**
+	 * inserts a value into the heap
+	 * @param data the data being inserted
+	 */
 	void insert(T data)
 	{
 		if(m_Size == 0)
@@ -52,11 +65,19 @@ public:
 		}
 		m_Size++;
 	}
+	/**
+	 * searches the heap for the specified value
+	 * returns true if found, false otherwise
+	 * @param data the data being searched for
+	 */
 	bool find(T data)
 	{
 		if(!m_Size)return false;
 		else return find(data, m_Root);
 	}
+	/**
+	 * NOT IMPL'D
+	 */
 	bool remove(T data)
 	{
 		GeneralTreeException e("Method not implemented.");
@@ -69,6 +90,11 @@ public:
 		}
 		else return false;
 	}
+	/**
+	 * finds and returns the node with the specified data
+	 * or 0 if it is not found
+	 * @param data the data to find and get
+	 */
 	TreeNode<T> *find_node(T data)
 	{
 		if(!m_Size)
@@ -82,16 +108,26 @@ public:
 		}
 		return node;
 	}
+	/**
+	 * returns the size of the tree (number of nodes)
+	 */
 	long long size()
 	{
 		return m_Size;
 	}
+	/**
+	 * NOT IMPL'D
+	 */
 	long long height()
 	{
 		GeneralTreeException e("Method not implemented.");
 		throw e;
 		return 0; //not impld yet
 	}
+	/**
+	 * returns an array containing the preorder traversal of the tree
+	 * or throws an exception if the tree is empty
+	 */
 	T *preorder()
 	{
 		if(!m_Size)
@@ -105,6 +141,10 @@ public:
 		return m_PreOrder;
 
 	}
+	/**
+	 * returns an array containing the inorder traversal of the tree
+	 * or throws an exception if the tree is empty
+	 */
 	T *inorder()
 	{
 		if(!m_Size)
@@ -118,6 +158,10 @@ public:
 		return m_InOrder;
 
 	}
+	/**
+	 * returns an array containing the postorder traversal of the tree
+	 * or throws an exception if the tree is empty
+	 */
 	T *postorder()
 	{
 		if(!m_Size)

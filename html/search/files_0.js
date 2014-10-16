@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['list_2eh',['List.h',['../List_8h.html',1,'']]]
+  ['binarysearchtree_2eh',['BinarySearchTree.h',['../BinarySearchTree_8h.html',1,'']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['peek',['peek',['../classStack.html#adcb4774ac8aa94cbc19b461da9bdee3a',1,'Stack']]],
-  ['pop',['pop',['../classStack.html#aa2ea0e8c3293648589dd734d52487408',1,'Stack']]],
-  ['push',['push',['../classStack.html#a979f82daa2d15f26577e4b4556dbc31f',1,'Stack']]]
+  ['get_5fnth',['get_nth',['../classMinHeap.html#aba3ce73f6485186c4d90acdf48da08c8',1,'MinHeap']]],
+  ['get_5fsorted_5farray',['get_sorted_array',['../classMinHeap.html#ae4d830e750d0b53ea5ca68306d223a78',1,'MinHeap']]]
 ];

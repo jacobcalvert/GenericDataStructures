@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['index_5fof',['index_of',['../classList.html#a2aa2cf85b1560b71b87315845f79d7c5',1,'List']]],
-  ['is_5fempty',['is_empty',['../classQueue.html#a73ad5142dc00d4ccfe393faa2bc46a1f',1,'Queue']]],
-  ['is_5ffull',['is_full',['../classQueue.html#a1f39560f66ded0b64d1408276bf76c75',1,'Queue']]]
+  ['empty',['empty',['../classQueue.html#aeb51bd9ad9274743e8afaa46ee19c7e4',1,'Queue::empty()'],['../classStack.html#afb0fb22e07a6b5b59b31eca5e0aba9e4',1,'Stack::empty()']]],
+  ['enqueue',['enqueue',['../classQueue.html#a03a342635b2675a5c24b96a174a42c7a',1,'Queue']]]
 ];
