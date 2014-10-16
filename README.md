@@ -36,6 +36,7 @@ KNOWN BUGS / ISSUES
 CLOSED BUGS / ISSUES
 ------------------------
 * I'm converting the char* in the exception generation code to std::string so the compiler will shut up with deprecation warnings [closed 10/15/2014]
+* Removed all the compiler warnings at this moment [closed 10/15/2014]
 
 
 

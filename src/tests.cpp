@@ -27,9 +27,9 @@ bool test_queue()
 	{
 		return false;
 	}
-	int lim = 100000;
+	unsigned int lim = 100000;
 	Queue<int> q2(QueueType_FINITE, lim);
-	int i = 0;
+	unsigned int i = 0;
 	while(i++ < lim)
 	{
 		q2.enqueue(i);
@@ -137,9 +137,9 @@ bool test_stack()
 	{
 		return false;
 	}
-	int lim = 100000;
+	unsigned int lim = 100000;
 	Stack<int> s2(StackType_FINITE, lim);
-	int i = 0;
+	unsigned int i = 0;
 	while(i++ < lim)
 	{
 		s2.push(i);
@@ -208,7 +208,7 @@ bool test_stack()
 bool test_list()
 {
 	List<int> l;
-	int i = 0, lim = 1000;
+	unsigned int i = 0, lim = 1000;
 	while(i < lim)
 	{
 		l.append(i);
@@ -221,7 +221,7 @@ bool test_list()
 	i = 0;
 	while(i < l.size())
 	{
-		if(i != l[i])
+		if(i != (unsigned int) l[i])
 		{
 			return false;
 		}
@@ -230,7 +230,7 @@ bool test_list()
 	i = 0;
 	while(--i > (-lim))
 	{
-		if(l[i] != lim + i)
+		if((unsigned int)l[i] != lim + i)
 		{
 			return false;
 		}
@@ -265,7 +265,7 @@ bool test_list()
 	i = 0;
 	while(i < l.size())
 	{
-		if(l[i] != i)
+		if((unsigned int) l[i] != i)
 		{
 			return false;
 		}
@@ -353,7 +353,7 @@ bool test_bst()
 void reverse_a_list()
 {
 	List<int> list;
-	int i = 1, lim = 20;
+	unsigned int i = 1, lim = 20;
 	for(;i<lim; i++)
 	{
 		list.append(i);
