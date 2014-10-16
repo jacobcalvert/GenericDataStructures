@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Main Page</title>
+<title>My Project: src/List.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -36,9 +36,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -57,7 +57,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,12 +76,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">My Project Documentation</div>  </div>
+<div class="title">List.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+
+<p>Implementation of a dynamically sized array based list.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;exception&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+</div>
+<p><a href="List_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIndexException.html">IndexException</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classList.html">List&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of a dynamically sized array based list. </p>
+<p>Jacob Calvert (<a href="#" onclick="location.href='mai'+'lto:'+'jac'+'ob'+'+in'+'fo'+'@ja'+'co'+'bnc'+'al'+'ver'+'t.'+'com'; return false;">jacob<span style="display: none;">.nosp@m.</span>+inf<span style="display: none;">.nosp@m.</span>o@jac<span style="display: none;">.nosp@m.</span>obnc<span style="display: none;">.nosp@m.</span>alver<span style="display: none;">.nosp@m.</span>t.co<span style="display: none;">.nosp@m.</span>m</a>) </p>
+<dl class="section date"><dt>Date</dt><dd>September, 2014 This implementation of the ADT <a class="el" href="classList.html">List</a> is based on a dynamically sized array. The backend storage is resized on insert and remove operations when the size of the list is below or above a certain threshold set by the static class variable SCALING_FACTOR. The SCALING_FACTOR is set by default to 2. This means that the the array will double in size when it gets more than halfway full and will half its size when items are removed down to 1/4 the capacity.</dd></dl>
+<p>This can guarantee an amortized constant time analysis. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed Oct 15 2014 21:28:09 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
