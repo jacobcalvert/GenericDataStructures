@@ -1,3 +1,15 @@
+/**
+ * @file   Queue.h
+ * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
+ * @date   September, 2014
+ * @brief  Implementation of a link-based queue.
+ *
+ * This queue implementation is based on linked nodes which guarantees constant time
+ * operations for certain things. By holding a reference to the size of the queue,
+ * we can enforce certain restrictions and provide extra functions such as queue waiting via is_full()
+ *
+ * The code has exceptions for illegal operations on the standard ADT Queue.
+ */
 #ifndef QUEUE_H_
 #define QUEUE_H_
 #include "GenericDefinitions.h"
@@ -47,21 +59,53 @@ template <typename T>
 class Queue
 {
 public:
+	/**
+	 * Queue constructor.
+	 * Constructs an infinite queue.
+	 */
 	Queue():m_Type(QueueType_INFINITE),m_Capacity(DEFAULT_SIZE),m_Size(0),m_Head(0),m_Tail(0)
 	{
 	}
+	/**
+	 * Queue constructor.
+	 * Constructs a queue of the specified type with the capacity set to DEFAULT_SIZE
+	 * @param type the type of queue
+	 * @see QueueType
+	 */
 	Queue(QueueType type):m_Type(type),m_Capacity(DEFAULT_SIZE),m_Size(0),m_Head(0),m_Tail(0)
 	{
 	}
+	/**
+	 * Queue constructor.
+	 * Constructs a queue of specified type and capacity
+	 * @param type the type of queue
+	 * @see QueueType
+	 */
 	Queue(QueueType type, unsigned int capacity):m_Type(type), m_Capacity(capacity),m_Size(0),m_Head(0),m_Tail(0)
 	{
 	}
+	/**
+	 * Destructor.
+	 * Nothing to see here. Simply destroys the nodes.
+	 */
 	~Queue()
 	{
 		this->empty();
 	}
+	/**
+	 * returns the size of the queue
+	 * NOTE: size is not the same as capacity
+	 */
 	unsigned int size(){return m_Size;}
+	/**
+	 * returns the capacity of the queue.
+	 * NOTE: size is not the same as capacity
+	 */
 	unsigned int capacity(){return m_Capacity;}
+	/**
+	 * empties the queue via repeated calls to dequeue
+	 * @see dequeue()
+	 */
 	void empty()
 	{
 		while(!this->is_empty())
@@ -69,6 +113,11 @@ public:
 			this->dequeue();
 		}
 	}
+	/**
+	 * enqueues some data into the queue
+	 * Will throw an exception if queue is finite and the size > capacity
+	 * @param data data to be enqueued
+	 */
 	bool enqueue(T data)
 	{
 		if(m_Type != QueueType_INFINITE && m_Size == m_Capacity)
@@ -93,6 +142,9 @@ public:
 		}
 		return true;
 	}
+	/**
+	 * dequeues and returns an item from the queue
+	 */
 	T dequeue()
 	{
 		T data;
@@ -121,10 +173,17 @@ public:
 		}
 		return data;
 	}
+	/**
+	 * returns true if empty
+	 */
 	bool is_empty()
 	{
 		return m_Size == 0;
 	}
+	/**
+	 * only valid if the queue type is finite, returns true if the queue is full
+	 *
+	 */
 	bool is_full()
 	{
 		if(m_Type == QueueType_FINITE)

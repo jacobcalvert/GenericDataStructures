@@ -1,3 +1,15 @@
+/**
+ * @file   Stack.h
+ * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
+ * @date   September, 2014
+ * @brief  Implementation of a link-based stack.
+ *
+ * This stack implementation is based on linked nodes which guarantees constant time
+ * operations for certain things. By holding a reference to the size of the stack,
+ * we can enforce certain restrictions and provide extra functions such as stack waiting via is_full()
+ *
+ * The code has exceptions for illegal operations on the standard ADT Stack.
+ */
 #ifndef STACK_H_
 #define STACK_H_
 #include "GenericDefinitions.h"
@@ -62,12 +74,32 @@ template <typename T>
 class Stack
 {
 public:
+	/**
+	 * Stack constructor.
+	 * Constructs an infinite stack.
+	 */
 	Stack():m_Head(0),m_Tail(0),m_Size(0),m_Capacity(DEFAULT_CAPACITY),m_Type(StackType_INFINTE)
 	{}
+	/**
+	 * Stack constructor.
+	 * Constructs a stack of the specified type with the capacity set to DEFAULT_CAPACITY
+	 * @param type the type of stack
+	 * @see StackType
+	 */
 	Stack(StackType type):m_Head(0),m_Tail(0),m_Size(0),m_Capacity(DEFAULT_CAPACITY),m_Type(type)
 	{}
+	/**
+	 * Stack constructor.
+	 * Constructs a stack of specified type and capacity
+	 * @param type the type of stack
+	 * @see StackType
+	 */
 	Stack(StackType type, unsigned int capacity):m_Head(0),m_Tail(0),m_Size(0),m_Capacity(capacity),m_Type(type)
 	{}
+	/**
+	 * Destructor.
+	 * Nothing to see here. Simply destroys the nodes.
+	 */
 	~Stack()
 	{
 		this->empty();
@@ -84,8 +116,20 @@ public:
 	{
 		return m_Size == 0;
 	}
+	/**
+	 * returns the size of the stack
+	 * NOTE: size is not the same as capacity
+	 */
 	unsigned int size(){return m_Size;}
+	/**
+	 * returns the capacity of the stack.
+	 * NOTE: size is not the same as capacity
+	 */
 	unsigned int capacity(){return m_Capacity;}
+	/**
+	 * empties the stack via repeated calls to pop
+	 * @see pop()
+	 */
 	void empty()
 	{
 		while(!this->is_empty())
@@ -93,6 +137,9 @@ public:
 			this->pop();
 		}
 	}
+	/**
+	 * shows the top of the stack without popping it
+	 */
 	T peek()
 	{
 		if((m_Head == m_Tail) && m_Head == 0)
@@ -101,6 +148,11 @@ public:
 		}
 		return m_Head->data;
 	}
+	/**
+	 * adds a value to the top of the stack
+	 * @param data the data being added to the stack top
+	 * @see pop()
+	 */
 	bool push(T data)
 	{
 		if (m_Type == StackType_FINITE && m_Size == m_Capacity)
@@ -126,6 +178,10 @@ public:
 		}
 		return true;
 	}
+	/**
+	 * returns the top item and removes it from the stack
+	 * @see peek()
+	 */
 	T pop()
 	{
 		T data;
