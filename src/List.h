@@ -1,3 +1,18 @@
+/**
+ * @file   List.h
+ * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
+ * @date   September, 2014
+ * @brief  Implementation of a dynamically sized array based list
+ *
+ * This implementation of the ADT List is based on a dynamically sized array.
+ * The backend storage is resized on insert and remove operations when the size of
+ * the list is below or above a certain threshold set by the static class variable
+ * SCALING_FACTOR. The SCALING_FACTOR is set by default to 2. This means that the
+ * the array will double in size when it gets more than halfway full and will half
+ * its size when items are removed down to 1/4 the capacity.
+ *
+ * This can guarantee an amortized constant time analysis.
+ */
 #ifndef LIST_H_
 #define LIST_H_
 #include <exception>
@@ -24,10 +39,25 @@ template <typename T>
 class List
 {
 public:
+	/**
+	 * List constructor.
+	 */
 	List():m_Size(0), m_Capacity(DEFAULT_CAPACITY), m_Storage(new T[m_Capacity])
 	{}
+	/*
+	 * List destructor.
+	 */
 	~List()
-	{}
+	{
+		delete[] m_Storage;
+	}
+	/**
+	 * adds a value to the end of the list
+	 *
+	 * this method will add the value to the end of the list
+	 * it may cause a resize operation
+	 * @param data the value being added
+	 */
 	bool append(T data)
 	{
 		if( (m_Size + 1) > m_Capacity)
@@ -37,6 +67,13 @@ public:
 		m_Storage[m_Size ++] = data;
 		return true;
 	}
+	/**
+	 * replaces a value at specified index with another value
+	 * will throw an exception if the index is out of bounds
+	 *
+	 * @param index the index at which the replace is performed
+	 * @param data the value to replace the value at the spedcified index
+	 */
 	bool replace(int index, T data)
 	{
 		if(index > (int) m_Size || -index > (int) m_Size)
@@ -58,6 +95,13 @@ public:
 		}
 		return true;
 	}
+	/**
+	 * returns the index of the FIRST occurrence of the
+	 * value specified in the parameter
+	 * returns -1 if the value is not found
+	 *
+	 * @param data the value to be searched for
+	 */
 	int index_of(T data)
 	{
 		for(long long i = 0; i < m_Size; i++)
@@ -69,12 +113,23 @@ public:
 		}
 		return -1;
 	}
+	/**
+	 * removes the FIRST occurrence of the value
+	 * returns true if success, false otherwise
+	 * @param data the value being removed
+	 * @see remove_at(int index)
+	 */
 	bool remove(T data)
 	{
 		int index = index_of(data);
 		if(index == -1)return false;//not found
 		else return remove_at(index);
 	}
+	/**
+	 * removes the data at the specified index
+	 * throws an exception if the index doesn't exist
+	 * @param index the index
+	 */
 	bool remove_at(int index)
 	{
 		if(index > (int) m_Size || -index > (int) m_Size)
@@ -122,6 +177,9 @@ public:
 		}
 		return data;
 	}
+	/**
+	 * returns the size of the list
+	 */
 	unsigned int size(){return m_Size;}
 	bool operator==(List& rhs)
 	{
@@ -145,6 +203,10 @@ public:
 	{
 		return !(*this == rhs);
 	}
+	/**
+	 * checks if the value specified is in the list
+	 * @param data the value being searched for
+	 */
 	bool contains(T data)
 	{
 		for(int i = 0; i < m_Size; i ++)
