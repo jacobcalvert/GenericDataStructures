@@ -15,11 +15,12 @@ Structures Done
 * List
 * MinHeap
 * Binary Search Tree
+* HashTable
 
 Structures Planned
 -----------------------
 * MaxHeap
-* Red-Black Tree
+* Red-Black Tree (this one is taking a hot minute...)
 * ....???
 
 

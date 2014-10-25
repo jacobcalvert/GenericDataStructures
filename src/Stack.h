@@ -104,6 +104,9 @@ public:
 	{
 		this->empty();
 	}
+	/**
+	 * returns true if the stack is full and finite false otherwise
+	 */
 	bool is_full()
 	{
 		if(m_Type == StackType_FINITE && m_Size == m_Capacity)
@@ -112,6 +115,9 @@ public:
 		}
 		return false;
 	}
+	/**
+	 * returns true if the stack size is zero
+	 */
 	bool is_empty()
 	{
 		return m_Size == 0;

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['peek',['peek',['../classStack.html#adcb4774ac8aa94cbc19b461da9bdee3a',1,'Stack']]],
-  ['pop',['pop',['../classStack.html#aa2ea0e8c3293648589dd734d52487408',1,'Stack']]],
-  ['postorder',['postorder',['../classBinarySearchTree.html#a879f4614fc6f8f8ed2f1f536a4e007f5',1,'BinarySearchTree']]],
-  ['preorder',['preorder',['../classBinarySearchTree.html#af3011c53282a24d18cd8a874e3f98209',1,'BinarySearchTree']]],
-  ['push',['push',['../classStack.html#a979f82daa2d15f26577e4b4556dbc31f',1,'Stack']]]
+  ['merge',['merge',['../classMinHeap.html#a8823077b03cb14fa3c362235f5fab4f9',1,'MinHeap']]],
+  ['minheap',['MinHeap',['../classMinHeap.html#ab3f13c6abd82c7d1c7895f2c2f44301f',1,'MinHeap']]],
+  ['mod_5fcount',['mod_count',['../classHashTable.html#a9dffbb5fd488b300335986a77a9196c2',1,'HashTable']]]
 ];

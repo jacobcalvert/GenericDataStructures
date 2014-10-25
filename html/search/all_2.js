@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['capacity',['capacity',['../classQueue.html#ac771558ca69b2fe64e49c478bf18ab12',1,'Queue::capacity()'],['../classStack.html#a24e0d82aaa3f1219cc7a0714ecacaa30',1,'Stack::capacity()']]],
-  ['contains',['contains',['../classList.html#a382c4b7faaf5e0775cc76467af59f278',1,'List']]]
+  ['begin',['begin',['../classHashTable_1_1iterator.html#a90f21d667726ec08ba1145558f594c31',1,'HashTable::iterator::begin()'],['../classHashTable.html#a8d1b3825491d97a4511d4c263fc0352d',1,'HashTable::begin()']]],
+  ['binarysearchtree',['BinarySearchTree',['../classBinarySearchTree.html',1,'BinarySearchTree&lt; T &gt;'],['../classBinarySearchTree.html#a3b0cc4709a1f77edc8ecedd5553d44cf',1,'BinarySearchTree::BinarySearchTree()']]],
+  ['binarysearchtree_2eh',['BinarySearchTree.h',['../BinarySearchTree_8h.html',1,'']]]
 ];

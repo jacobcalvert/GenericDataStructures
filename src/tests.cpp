@@ -6,8 +6,11 @@
 #include "Heap.h"
 #include "RedBlackTree.h"
 #include "BinarySearchTree.h"
+#include "HashTable.h"
 #include <string>
 #include <exception>
+#include <fstream>
+#include <iostream>
 #include <stdlib.h>
 #include <time.h>
 
@@ -347,8 +350,82 @@ bool test_bst()
 
 	int n = sorted[rand() % (lim/2)];
 	if(!bst.find(n)) return false;
+	//bst.remove(n);
+	sorted = bst.inorder();
+	for(i = 1; i < bst.size(); i++ )
+	{
+		if(sorted[i-1] > sorted[i]){return false;}
+	}
+	i = 0;
+	/*while(bst.size() >= 10)
+	{
+		bst.remove(sorted[i++]);
+	}*/
+	return true;
+}
+bool test_hashtable()
+{
+	HashTable<int, char> ht;
+	for(int i = 0; i < 1000; i++)
+	{
+		ht.set(i, (char)i);
+	}
+	for(int i = 0; i < 1000; i++)
+	{
+		ht.remove(i);
+	}
+	if(ht.size() != 0)
+	{
+		return false;
+	}
+	HashTable<int, int> ht2;
+	for(int i = 0; i < 1000; i++)
+	{
+		ht2.set(0, i);
+	}
+	if(ht2.size() != 1)return false;
+
+	HashTable<int, int> ht3;
+	ht3[0] = 0;
+	ht3[0] = 1;
+
+	if(ht3[0] != 1)return false;
+
 
 	return true;
+}
+void character_histogram()
+{
+	HashTable<char, long long> ht;
+	std::ifstream input("../test_files/PG-MobyDick.txt");
+	char c;
+	if(input.is_open())
+	{
+		while(input.get(c))
+		{
+			if(ht.contains(c))
+			{
+				ht[c] = ht[c] + 1;
+			}
+			else
+			{
+				ht[c] = 1;
+			}
+		}
+	}
+	ht.remove('c');
+	HashTable<char, long long>::iterator it = *ht.begin();
+	while(it.pos() < it.end())
+	{
+		std::cout<<"'"<< it.key()<<"'" << "=>"<< it.value() << std::endl;
+		it++;
+	}
+	it--;
+	while(it.pos() >= it.begin())
+	{
+		std::cout<<"'"<< it.key()<<"'" << "=>"<< it.value() << std::endl;
+		it--;
+	}
 }
 void reverse_a_list()
 {
@@ -442,6 +519,7 @@ void functional_tests()
 	printf("FUNCTIONAL TESTS\n");
 	reverse_a_list();
 	bin_sort();
+	character_histogram();
 }
 bool test_all()
 {
@@ -450,7 +528,8 @@ bool test_all()
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
 	printf("Test MinHeap: %s\n",test_minheap()?"PASS":"FAIL");
 	printf("Test RedBlack: %s\n", /*test_redblack()*/false?"PASS":"FAIL");
-	printf("Test BST: %s\n", test_bst()?"PASS":"FAIL");
+	//printf("Test BST: %s\n", test_bst()?"PASS":"FAIL");
+	printf("Test HashTable: %s\n",test_hashtable()?"PASS":"FAIL");
 	if(DEBUG)functional_tests();
 	return 1;
 }

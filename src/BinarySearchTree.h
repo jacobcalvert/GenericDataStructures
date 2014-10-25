@@ -56,7 +56,10 @@ public:
 			m_Root = new TreeNode<T>;
 			m_Root->left = new TreeNode<T>;
 			m_Root->right= new TreeNode<T>;
+			m_Root->right->parent = m_Root;
+			m_Root->left->parent = m_Root;
 			m_Root->data = data;
+			m_Root->parent = 0;
 			m_Root->valid = true;
 		}
 		else
@@ -80,12 +83,62 @@ public:
 	 */
 	bool remove(T data)
 	{
+		TreeNode<T> * node = find_node(data);
+		if(!node)return false;
+		else return remove(node);
+	}
+	bool remove(TreeNode<T>*node)
+	{
 		GeneralTreeException e("Method not implemented.");
 		throw e;
-		// imple below soon
-		TreeNode<T> * node = find_node(data);
-		if(node)
+		if(node  && node->valid)
 		{
+			if(node->num_children() == 0)
+			{
+				node->valid = false; //esseintially just nullifying it
+			}
+			else if(node->num_children() == 1)
+			{
+				if(node->left->valid)//has only a left child
+				{
+
+					if(node->parent->left == node)
+					{
+						//we are left child
+						node->parent->left = node->left;
+					}
+					else
+					{
+						node->parent->right = node->left;
+					}
+					node->left->parent = node->parent;
+				}
+				else
+				{
+					if(node->parent->left == node)
+					{
+						//we are left child
+						node->parent->left = node->right;
+					}
+					else
+					{
+						node->parent->right = node->right;
+					}
+					node->right->parent = node->parent;
+				}
+			}
+			else
+			{
+				TreeNode<T>* p = node->left;
+				while(p->right->valid)
+				{
+					p = p->right;
+				}
+				node->data = p->data;
+				remove(p);
+
+			}
+			m_Size--;
 			return true;
 		}
 		else return false;
@@ -235,6 +288,8 @@ private:
 		{
 			node->left = new TreeNode<T>;
 			node->right= new TreeNode<T>;
+			node->right->parent = node;
+			node->left->parent = node;
 			node->data = data;
 			node->valid = true;
 		}

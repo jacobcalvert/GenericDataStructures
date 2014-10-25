@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get_5fnth',['get_nth',['../classMinHeap.html#aba3ce73f6485186c4d90acdf48da08c8',1,'MinHeap']]],
-  ['get_5fsorted_5farray',['get_sorted_array',['../classMinHeap.html#ae4d830e750d0b53ea5ca68306d223a78',1,'MinHeap']]]
+  ['find',['find',['../classBinarySearchTree.html#a5ee17a22625f138f9d667cd440f3be20',1,'BinarySearchTree::find()'],['../classMinHeap.html#a3e14531abd741df19bb188515e762889',1,'MinHeap::find()']]],
+  ['find_5fnode',['find_node',['../classBinarySearchTree.html#ab2a764e15e94734c54424038b093a34d',1,'BinarySearchTree']]]
 ];

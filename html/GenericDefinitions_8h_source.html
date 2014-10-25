@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: src/GenericDefinitions.h Source File</title>
+<title>Generic Data Structures: src/GenericDefinitions.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Generic Data Structures
    </div>
+   <div id="projectbrief">This is a collection of templated data structures written in C++</div>
   </td>
  </tr>
  </tbody>
@@ -60,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -67,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,56 +91,141 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="GenericDefinitions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef GENERICDEFINITIONS_H_</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GENERICDEFINITIONS_H_</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="keyword">enum</span> RedBlackTreeNodeColor</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    RedBlackTreeNodeColor_RED = 0,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    RedBlackTreeNodeColor_BLACK</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classNode.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNode.html">Node</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classNode.html#a0ac1d44cfe588be564acf25485029bd8">   24</a></span>&#160;    <a class="code" href="classNode.html#a0ac1d44cfe588be564acf25485029bd8">Node</a>():next(0),prev(0){}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ~<a class="code" href="classNode.html">Node</a>(){}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    T data;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classNode.html">Node</a>* next, *prev;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classTreeNode.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTreeNode.html">TreeNode</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classTreeNode.html#add4640228abb06ac38eff3e4ae2869ef">   36</a></span>&#160;    <a class="code" href="classTreeNode.html#add4640228abb06ac38eff3e4ae2869ef">TreeNode</a>():left(0), right(0), parent(0), valid(false)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    T data;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classTreeNode.html">TreeNode</a> *left, *right, *parent;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> valid;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classRedBlackTreeNode.html">   43</a></span>&#160;<span class="keyword">class</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="classRedBlackTreeNode.html">RedBlackTreeNode</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classRedBlackTreeNode.html#a1cb007141962147817f1ba457d8781b3">   50</a></span>&#160;    <a class="code" href="classRedBlackTreeNode.html#a1cb007141962147817f1ba457d8781b3">RedBlackTreeNode</a>():left(0),right(0),parent(0),valid(false),color(RedBlackTreeNodeColor_BLACK)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classRedBlackTreeNode.html">RedBlackTreeNode</a> *left, *right, *parent;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">   13</a></span>&#160;<span class="preprocessor">#define HASH_TABLE_SIZE 9973 </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">enum RedBlackTreeNodeColor</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span>{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    RedBlackTreeNodeColor_RED = 0,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    RedBlackTreeNodeColor_BLACK</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span><a class="code" href="classNode.html">Node</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classNode.html">   24</a></span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classNode.html#a0ac1d44cfe588be564acf25485029bd8">Node</a>():next(0),prev(0){}</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classNode.html#a0ac1d44cfe588be564acf25485029bd8">   30</a></span>&#160;    ~<a class="code" href="classNode.html">Node</a>(){}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    T data;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classNode.html">Node</a>* next, *prev;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K,<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span><a class="code" href="classHashTableNode.html">HashTableNode</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classHashTableNode.html">   36</a></span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classHashTableNode.html">HashTableNode</a>():next(0), prev(0), valid(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    K key;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    T value;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classHashTableNode.html">HashTableNode&lt;K, T&gt;</a> * next, *prev;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> valid;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span><a class="code" href="classTreeNode.html">TreeNode</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classTreeNode.html">   47</a></span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classTreeNode.html#add4640228abb06ac38eff3e4ae2869ef">TreeNode</a>():left(0), right(0), parent(0), valid(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classTreeNode.html#add4640228abb06ac38eff3e4ae2869ef">   53</a></span>&#160;    {}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    T data;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> valid;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    RedBlackTreeNodeColor color;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GENERICDEFINITIONS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="classNode_html"><div class="ttname"><a href="classNode.html">Node</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:18</div></div>
-<div class="ttc" id="classNode_html_a0ac1d44cfe588be564acf25485029bd8"><div class="ttname"><a href="classNode.html#a0ac1d44cfe588be564acf25485029bd8">Node::Node</a></div><div class="ttdeci">Node()</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:24</div></div>
-<div class="ttc" id="classTreeNode_html_add4640228abb06ac38eff3e4ae2869ef"><div class="ttname"><a href="classTreeNode.html#add4640228abb06ac38eff3e4ae2869ef">TreeNode::TreeNode</a></div><div class="ttdeci">TreeNode()</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:36</div></div>
-<div class="ttc" id="classRedBlackTreeNode_html_a1cb007141962147817f1ba457d8781b3"><div class="ttname"><a href="classRedBlackTreeNode.html#a1cb007141962147817f1ba457d8781b3">RedBlackTreeNode::RedBlackTreeNode</a></div><div class="ttdeci">RedBlackTreeNode()</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:50</div></div>
-<div class="ttc" id="classRedBlackTreeNode_html"><div class="ttname"><a href="classRedBlackTreeNode.html">RedBlackTreeNode</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:43</div></div>
-<div class="ttc" id="classTreeNode_html"><div class="ttname"><a href="classTreeNode.html">TreeNode</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:30</div></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classTreeNode.html">TreeNode</a> *left, *right, *parent;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> valid;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> num_children()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">int</span> num = 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span>(left-&gt;valid)num++;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span>(right-&gt;valid)num++;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> num;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">class</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classRedBlackTreeNode.html">   67</a></span>&#160;<a class="code" href="classRedBlackTreeNode.html">RedBlackTreeNode</a></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classRedBlackTreeNode.html">RedBlackTreeNode</a>():left(0),right(0),parent(0),valid(<span class="keyword">false</span>),color(RedBlackTreeNodeColor_BLACK)</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classRedBlackTreeNode.html#a1cb007141962147817f1ba457d8781b3">   74</a></span>&#160;    {}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classRedBlackTreeNode.html">RedBlackTreeNode</a> *left, *right, *parent;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    T data;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> valid;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    RedBlackTreeNodeColor color;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">   83</a></span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;HashValue <a class="code" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a>(std::string &amp; str)</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">   90</a></span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    HashValue v = 0;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> i = 0; i &lt; str.size(); i++)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        v += str[i]*<a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    v = v&gt;&gt;5;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;HashValue <a class="code" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a>(<span class="keywordtype">char</span>* str)</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#a23ae890d0c241da7fa725df7e1033249">  107</a></span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    HashValue v = 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">while</span>(*str)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        v += *str;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        str++;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    v = v&gt;&gt;5;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;HashValue <a class="code" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a>(<span class="keywordtype">char</span> c)</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#a53a4c2a29a1283a99730cb9eb470648e">  126</a></span>&#160;{</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    HashValue v = 1;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    v*=c*<a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    v = v&gt;&gt;13;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    v*=3;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;HashValue <a class="code" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> &amp; k)</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#ac7ed397b009959d650cac5874466b110">  141</a></span>&#160;{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    HashValue v = 1;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    v*=k*<a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    v = v&gt;&gt;13;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    v*=3;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;HashValue <a class="code" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a>(<span class="keywordtype">long</span> <span class="keywordtype">int</span> &amp; k)</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#aabac00a0f09703ad396a0223728817b5">  156</a></span>&#160;{</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    HashValue v = 1;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    v*=k*<a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    v = v&gt;&gt;11;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    v*=3;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;HashValue <a class="code" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a>(<span class="keywordtype">int</span> &amp; k)</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="GenericDefinitions_8h.html#a9ea388afa7771b9f51d3e295f7e9d399">  171</a></span>&#160;{</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    HashValue v = 1;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    v*=k*<a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    v = v&gt;&gt;3;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    v*=3;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    v+= <a class="code" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GENERICDEFINITIONS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="classNode_html"><div class="ttname"><a href="classNode.html">Node</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:24</div></div>
+<div class="ttc" id="classNode_html_a0ac1d44cfe588be564acf25485029bd8"><div class="ttname"><a href="classNode.html#a0ac1d44cfe588be564acf25485029bd8">Node::Node</a></div><div class="ttdeci">Node()</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:30</div></div>
+<div class="ttc" id="GenericDefinitions_8h_html_ac59e492735477af522bcdbe59c80ba85"><div class="ttname"><a href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a></div><div class="ttdeci">HashValue _hash(std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:90</div></div>
+<div class="ttc" id="GenericDefinitions_8h_html_abb48e304e1c6629c2513f41001620bf0"><div class="ttname"><a href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a></div><div class="ttdeci">unsigned long long HashValue</div><div class="ttdoc">typedef to make things clearer, HashValue may be a class in the future </div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:83</div></div>
+<div class="ttc" id="classTreeNode_html_add4640228abb06ac38eff3e4ae2869ef"><div class="ttname"><a href="classTreeNode.html#add4640228abb06ac38eff3e4ae2869ef">TreeNode::TreeNode</a></div><div class="ttdeci">TreeNode()</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:53</div></div>
+<div class="ttc" id="classHashTableNode_html"><div class="ttname"><a href="classHashTableNode.html">HashTableNode</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:36</div></div>
+<div class="ttc" id="GenericDefinitions_8h_html_abfd8510b1fadf533d685965730e2969b"><div class="ttname"><a href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a></div><div class="ttdeci">#define HASH_TABLE_SIZE</div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:13</div></div>
+<div class="ttc" id="classRedBlackTreeNode_html"><div class="ttname"><a href="classRedBlackTreeNode.html">RedBlackTreeNode</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:67</div></div>
+<div class="ttc" id="classTreeNode_html"><div class="ttname"><a href="classTreeNode.html">TreeNode</a></div><div class="ttdef"><b>Definition:</b> GenericDefinitions.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 15 2014 21:57:48 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 25 2014 17:52:41 for Generic Data Structures by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

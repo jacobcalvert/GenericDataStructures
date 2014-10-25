@@ -1,7 +1,15 @@
 var searchData=
 [
-  ['set_5fcomparator',['set_comparator',['../classMinHeap.html#a17f11d130e2d7ef9e364a0aa13f32f76',1,'MinHeap']]],
-  ['size',['size',['../classBinarySearchTree.html#ae2c9d82affffea5d247e2e3004e5f5bf',1,'BinarySearchTree::size()'],['../classMinHeap.html#a94b34f40ddbe059de3967e0b6c6d4186',1,'MinHeap::size()'],['../classList.html#ad908ab5cf19370fcdf61cf1927e5e8f5',1,'List::size()'],['../classQueue.html#a4800fd0282b92a78fcab9e2943a62ec8',1,'Queue::size()'],['../classStack.html#ab04985802f97ae3555289c865462bf7f',1,'Stack::size()']]],
-  ['stack',['Stack',['../classStack.html',1,'Stack&lt; T &gt;'],['../classStack.html#aefee698059467258bbd79045aca62a63',1,'Stack::Stack()'],['../classStack.html#a5433ddc1e5bef8c63999c96c974da3ce',1,'Stack::Stack(StackType type)'],['../classStack.html#a6430424b290d2da36f6a282280c27f86',1,'Stack::Stack(StackType type, unsigned int capacity)']]],
-  ['stack_2eh',['Stack.h',['../Stack_8h.html',1,'']]]
+  ['peek',['peek',['../classStack.html#adcb4774ac8aa94cbc19b461da9bdee3a',1,'Stack']]],
+  ['peekexception',['PeekException',['../classPeekException.html',1,'']]],
+  ['pop',['pop',['../classStack.html#aa2ea0e8c3293648589dd734d52487408',1,'Stack']]],
+  ['popexception',['PopException',['../classPopException.html',1,'']]],
+  ['pos',['pos',['../classHashTable_1_1iterator.html#a0b3652aa517571770aac531c9753d4ed',1,'HashTable::iterator']]],
+  ['postorder',['postorder',['../classBinarySearchTree.html#a879f4614fc6f8f8ed2f1f536a4e007f5',1,'BinarySearchTree']]],
+  ['preorder',['preorder',['../classBinarySearchTree.html#af3011c53282a24d18cd8a874e3f98209',1,'BinarySearchTree']]],
+  ['prev',['prev',['../classHashTable_1_1iterator.html#a5bc7b5b717fa2acbab5017cd2d569d1a',1,'HashTable::iterator']]],
+  ['proxy',['proxy',['../classHashTable_1_1proxy.html#aafcc0aa3cb8e91e68d27195983394e4d',1,'HashTable::proxy']]],
+  ['proxy',['proxy',['../classHashTable_1_1proxy.html',1,'HashTable']]],
+  ['push',['push',['../classStack.html#a979f82daa2d15f26577e4b4556dbc31f',1,'Stack']]],
+  ['pushexception',['PushException',['../classPushException.html',1,'']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: src/GenericDefinitions.h File Reference</title>
+<title>Generic Data Structures: src/GenericDefinitions.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Generic Data Structures
    </div>
+   <div id="projectbrief">This is a collection of templated data structures written in C++</div>
   </td>
  </tr>
  </tbody>
@@ -60,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -67,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,7 +86,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GenericDefinitions.h File Reference</div>  </div>
 </div><!--header-->
@@ -92,17 +97,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Definitions of generically used items in the project.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+</div>
 <p><a href="GenericDefinitions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html">Node&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHashTableNode.html">HashTableNode&lt; K, T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTreeNode.html">TreeNode&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRedBlackTreeNode.html">RedBlackTreeNode&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:abfd8510b1fadf533d685965730e2969b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>&#160;&#160;&#160;9973</td></tr>
+<tr class="separator:abfd8510b1fadf533d685965730e2969b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:abb48e304e1c6629c2513f41001620bf0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb48e304e1c6629c2513f41001620bf0"></a>
+typedef unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a></td></tr>
+<tr class="memdesc:abb48e304e1c6629c2513f41001620bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef to make things clearer, HashValue may be a class in the future <br/></td></tr>
+<tr class="separator:abb48e304e1c6629c2513f41001620bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -110,15 +130,189 @@ Enumerations</h2></td></tr>
 <b>RedBlackTreeNodeColor_BLACK</b>
  }</td></tr>
 <tr class="separator:a499b67fcccd17e7171a4ca8b3047753b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac59e492735477af522bcdbe59c80ba85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#ac59e492735477af522bcdbe59c80ba85">_hash</a> (std::string &amp;str)</td></tr>
+<tr class="separator:ac59e492735477af522bcdbe59c80ba85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ae890d0c241da7fa725df7e1033249"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#a23ae890d0c241da7fa725df7e1033249">_hash</a> (char *str)</td></tr>
+<tr class="separator:a23ae890d0c241da7fa725df7e1033249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a4c2a29a1283a99730cb9eb470648e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#a53a4c2a29a1283a99730cb9eb470648e">_hash</a> (char c)</td></tr>
+<tr class="separator:a53a4c2a29a1283a99730cb9eb470648e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ed397b009959d650cac5874466b110"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#ac7ed397b009959d650cac5874466b110">_hash</a> (long long int &amp;k)</td></tr>
+<tr class="separator:ac7ed397b009959d650cac5874466b110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabac00a0f09703ad396a0223728817b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#aabac00a0f09703ad396a0223728817b5">_hash</a> (long int &amp;k)</td></tr>
+<tr class="separator:aabac00a0f09703ad396a0223728817b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea388afa7771b9f51d3e295f7e9d399"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GenericDefinitions_8h.html#a9ea388afa7771b9f51d3e295f7e9d399">_hash</a> (int &amp;k)</td></tr>
+<tr class="separator:a9ea388afa7771b9f51d3e295f7e9d399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitions of generically used items in the project. </p>
 <p>Jacob Calvert (<a href="#" onclick="location.href='mai'+'lto:'+'jac'+'ob'+'+in'+'fo'+'@ja'+'co'+'bnc'+'al'+'ver'+'t.'+'com'; return false;">jacob<span style="display: none;">.nosp@m.</span>+inf<span style="display: none;">.nosp@m.</span>o@jac<span style="display: none;">.nosp@m.</span>obnc<span style="display: none;">.nosp@m.</span>alver<span style="display: none;">.nosp@m.</span>t.co<span style="display: none;">.nosp@m.</span>m</a>) </p>
 <dl class="section date"><dt>Date</dt><dd>September, 2014 This file contains several definitions of common structures such as linked list nodes and tree nodes. </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="abfd8510b1fadf533d685965730e2969b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HASH_TABLE_SIZE&#160;&#160;&#160;9973</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prime for hashing. If you change this, make it a prime number N so that hashes are equally distributed in the range [0,N) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ac59e492735477af522bcdbe59c80ba85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a> _hash </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>calculates the hashvalue of the given string returns a HashValue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>the string being hashed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classHashTable.html">HashTable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a23ae890d0c241da7fa725df7e1033249"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a> _hash </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>calculates the hashvalue of the given string returns a HashValue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>the string being hashed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classHashTable.html">HashTable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a53a4c2a29a1283a99730cb9eb470648e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a> _hash </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>calculates the hashvalue of the given char returns a HashValue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>the char being hashed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classHashTable.html">HashTable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac7ed397b009959d650cac5874466b110"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a> _hash </td>
+          <td>(</td>
+          <td class="paramtype">long long int &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>calculates the hashvalue of the given integer returns a HashValue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>the integer being hashed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classHashTable.html">HashTable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aabac00a0f09703ad396a0223728817b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a> _hash </td>
+          <td>(</td>
+          <td class="paramtype">long int &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>calculates the hashvalue of the given integer returns a HashValue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>the integer being hashed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classHashTable.html">HashTable</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ea388afa7771b9f51d3e295f7e9d399"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="GenericDefinitions_8h.html#abb48e304e1c6629c2513f41001620bf0">HashValue</a> _hash </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>calculates the hashvalue of the given integer returns a HashValue </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>the integer being hashed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classHashTable.html">HashTable</a> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 15 2014 21:57:48 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 25 2014 17:52:41 for Generic Data Structures by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
