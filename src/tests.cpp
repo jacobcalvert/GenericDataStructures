@@ -14,6 +14,11 @@
 #include <stdlib.h>
 #include <time.h>
 
+bool test_tuple()
+{
+	return true;
+}
+
 bool test_queue()
 {
 	Queue<int> q1;
@@ -397,7 +402,7 @@ bool test_hashtable()
 void character_histogram()
 {
 	HashTable<char, long long> ht;
-	std::ifstream input("../test_files/PG-MobyDick.txt");
+	std::ifstream input("/home/jacob/Documents/Eclipse Workspace/C++/GenericDataStructures/test_files/PG-MobyDick.txt");
 	char c;
 	if(input.is_open())
 	{
@@ -405,7 +410,7 @@ void character_histogram()
 		{
 			if(ht.contains(c))
 			{
-				ht[c] = ht[c] + 1;
+				ht[c]+=1;
 			}
 			else
 			{
@@ -417,15 +422,44 @@ void character_histogram()
 	HashTable<char, long long>::iterator it = *ht.begin();
 	while(it.pos() < it.end())
 	{
-		std::cout<<"'"<< it.key()<<"'" << "=>"<< it.value() << std::endl;
+		//std::cout<<"'"<< it.key()<<"'" << "=>"<< it.value() << std::endl;
 		it++;
 	}
 	it--;
 	while(it.pos() >= it.begin())
 	{
-		std::cout<<"'"<< it.key()<<"'" << "=>"<< it.value() << std::endl;
+		//std::cout<<"'"<< it.key()<<"'" << "=>"<< it.value() << std::endl;
 		it--;
 	}
+
+	MinHeap<huff_node*> heap1;
+	HashTable<char, long long>::iterator it2 = *ht.begin();
+	while(it2.pos() < it2.end())
+	{
+		huff_node * node = new huff_node;
+		node->c = it2.key();
+		node->freq = it2.value();
+		node->is_leaf = true;
+		heap1.insert(node);
+		it2++;
+	}
+
+	while(heap1.size() > 2)
+	{
+		huff_node *left = heap1.remove_min(), *right = heap1.remove_min(), *new_node= new huff_node;
+		new_node->is_leaf = false;
+		new_node->freq = left->freq + right->freq;
+		new_node->left = left;
+		new_node->right = right;
+		heap1.insert(new_node);
+	}
+	huff_node *left = heap1.remove_min(), *right = heap1.remove_min(), *root= new huff_node;
+	root->is_leaf = false;
+	root->freq = left->freq + right->freq;
+	root->left = left;
+	root->right = right;
+	//HashTable<char, long long>::iterator it3 = *ht.begin();
+	//root is a huffman tree, could be traversed to create a compression algorithm
 }
 void reverse_a_list()
 {
@@ -530,6 +564,7 @@ bool test_all()
 	printf("Test RedBlack: %s\n", /*test_redblack()*/false?"PASS":"FAIL");
 	//printf("Test BST: %s\n", test_bst()?"PASS":"FAIL");
 	printf("Test HashTable: %s\n",test_hashtable()?"PASS":"FAIL");
+	printf("Test Tuple: %s\n",test_tuple()?"PASS":"FAIL");
 	if(DEBUG)functional_tests();
 	return 1;
 }

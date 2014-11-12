@@ -85,6 +85,39 @@ public:
 	{
 	}
 	/**
+	 * copy constructor
+	 */
+	Queue(Queue<T> &rhs)
+	{
+		if(*this != rhs)//prevent self assignment
+		{
+			m_Type = rhs.m_Type;
+			m_Capacity = rhs.m_Capacity;
+			m_Size = rhs.m_Size;
+			m_Head = rhs.m_Head;
+			m_Tail = rhs.m_Tail;
+		}
+	}
+	/*
+	 * assignment operator
+	 *
+	 * used for Queue<T> q1, q2;
+	 *
+	 * q2 = q1;
+	 */
+	Queue<T> & operator=(Queue<T> &rhs)
+	{
+		if(*this != rhs)
+		{
+			m_Type = rhs.m_Type;
+			m_Capacity = rhs.m_Capacity;
+			m_Size = rhs.m_Size;
+			m_Head = rhs.m_Head;
+			m_Tail = rhs.m_Tail;
+		}
+		return *this;
+	}
+	/**
 	 * Destructor.
 	 * Nothing to see here. Simply destroys the nodes.
 	 */

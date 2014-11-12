@@ -44,10 +44,33 @@ public:
 		m_Compare = default_compare;
 	}
 	/**
+	 * copy constructor
+	 */
+	MinHeap(MinHeap<T> & rhs):m_Head(rhs.m_Head), m_Size(rhs.m_Size), m_Compare(rhs.m_Compare)
+	{
+
+	}
+	/**
+	 * assignment operator
+	 */
+	MinHeap<T> operator=(MinHeap<T>& rhs)
+	{
+		if(*this != rhs)
+		{
+			m_Head = rhs.m_Head;
+			m_Size = rhs.m_Size;
+			m_Compare = rhs.m_Compare;
+		}
+
+		return *this;
+	}
+	/**
 	 * MinHeap destructor
 	 */
 	~MinHeap()
-	{}
+	{
+		delete m_Head;
+	}
 	/**
 	 * finds the value in the heap
 	 * returns true if it's found, false otherwise

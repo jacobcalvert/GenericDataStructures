@@ -97,6 +97,39 @@ public:
 	Stack(StackType type, unsigned int capacity):m_Head(0),m_Tail(0),m_Size(0),m_Capacity(capacity),m_Type(type)
 	{}
 	/**
+	 * copy constructor
+	 */
+	Stack(Stack<T> &rhs)
+	{
+		if(*this != rhs)//prevent self assignment
+		{
+			m_Type = rhs.m_Type;
+			m_Capacity = rhs.m_Capacity;
+			m_Size = rhs.m_Size;
+			m_Head = rhs.m_Head;
+			m_Tail = rhs.m_Tail;
+		}
+	}
+	/*
+	 * assignment operator
+	 *
+	 * used for Stack<T> s1, s2;
+	 *
+	 * s2 = s1;
+	 */
+	Stack<T> & operator=(Stack<T> &rhs)
+	{
+		if(*this != rhs)
+		{
+			m_Type = rhs.m_Type;
+			m_Capacity = rhs.m_Capacity;
+			m_Size = rhs.m_Size;
+			m_Head = rhs.m_Head;
+			m_Tail = rhs.m_Tail;
+		}
+		return *this;
+	}
+	/**
 	 * Destructor.
 	 * Nothing to see here. Simply destroys the nodes.
 	 */

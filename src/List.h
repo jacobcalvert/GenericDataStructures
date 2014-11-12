@@ -44,6 +44,28 @@ public:
 	 */
 	List():m_Size(0), m_Capacity(DEFAULT_CAPACITY), m_Storage(new T[m_Capacity])
 	{}
+	/**
+	 * copy constrcutor
+	 */
+	List(List& rhs):m_Size(rhs.m_Size),m_Capacity(rhs.m_Capacity), m_Storage(new T[m_Capacity])
+	{
+		memcpy(m_Storage, rhs.m_Storage, sizeof(T)*m_Size);
+	}
+	/**
+	 * assignment constructor
+	 */
+	List<T> operator=(List<T> &rhs)
+	{
+		if(*this != rhs)
+		{
+			m_Size = rhs.m_Size;
+			m_Capacity = rhs.m_Capacity;
+			m_Storage = new T[m_Capacity];
+			memcpy(m_Storage, rhs.m_Storage, sizeof(T)*m_Size);
+
+		}
+		return *this;
+	}
 	/*
 	 * List destructor.
 	 */

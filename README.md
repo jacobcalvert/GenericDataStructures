@@ -20,8 +20,8 @@ Structures Done
 Structures Planned
 -----------------------
 * MaxHeap
-* Red-Black Tree (this one is taking a hot minute...)
-* ....???
+* Red-Black Tree (this one is taking a HOT minute...)
+* Graph
 
 
 
@@ -38,6 +38,8 @@ CLOSED BUGS / ISSUES
 ------------------------
 * I'm converting the char* in the exception generation code to std::string so the compiler will shut up with deprecation warnings [closed 10/15/2014]
 * Removed all the compiler warnings at this moment [closed 10/15/2014]
+* Added copy constructors and assignment operarators to all the "done" classes. [closed 11/12/2014]
+* Fixed destructor bug in the HashTable where I was not releasing memory [closed 11/12/2014]
 
 
 

@@ -1,5 +1,5 @@
 /**
- * @file   GenericDefinitions.h
+* @file   GenericDefinitions.h
  * @Author Jacob Calvert (jacob+info@jacobncalvert.com)
  * @date   September, 2014
  * @brief  Definitions of generically used items in the project
@@ -31,15 +31,15 @@ public:
 	T data;
 	Node* next, *prev;
 };
-template <typename K,typename T>
+template <typename K,typename V>
 class HashTableNode
 {
 public:
 	HashTableNode():next(0), prev(0), valid(false)
 	{}
 	K key;
-	T value;
-	HashTableNode<K, T> * next, *prev;
+	V value;
+	HashTableNode<K, V> * next, *prev;
 	bool valid;
 };
 template <typename T>

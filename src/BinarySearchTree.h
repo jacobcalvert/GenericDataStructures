@@ -40,10 +40,33 @@ public:
 	BinarySearchTree():m_Root(0), m_Size(0),m_Indexer(0), m_PreOrder(0), m_InOrder(0), m_PostOrder(0)
 	{}
 	/**
+	 * copy constructor
+	 */
+	BinarySearchTree(BinarySearchTree<T>& rhs):m_Root(rhs.m_Root), m_Size(rhs.m_Size),m_Indexer(rhs.m_Indexer),
+			m_PreOrder(rhs.m_PreOrder), m_InOrder(rhs.m_InOrder), m_PostOrder(rhs.m_PostOrder)
+	{}
+	/**
+	 * assignment operator
+	 */
+	BinarySearchTree<T> operator=(BinarySearchTree& rhs)
+	{
+		if(*this != rhs)
+		{
+			m_Root = rhs.m_Root;
+			m_Size = rhs.m_Size;
+			m_Indexer = rhs.m_Indexer;
+			m_PreOrder = rhs.m_PreOrder;
+			m_InOrder = rhs.m_InOrder;
+			m_PostOrder = rhs.m_PostOrder;
+		}
+		return *this;
+	}
+	/**
 	 * BinarySearchTree destructor
 	 */
 	~BinarySearchTree()
 	{
+		delete m_Root;
 	}
 	/**
 	 * inserts a value into the heap

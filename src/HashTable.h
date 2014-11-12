@@ -52,6 +52,39 @@ public:
 
 	}
 	/**
+	 * copy constructor
+	 */
+	HashTable(HashTable&rhs)
+	{
+		m_Size = rhs.m_Size;
+		m_ModCount = rhs.m_ModCount;
+		m_Storage = new HashTableNode<K, V>[HASH_SIZE];
+		memcpy(m_Storage, rhs.m_Storage, sizeof(HashTableNode<K, V>)*HASH_SIZE);
+	}
+	/**
+	 * assignment constructor
+	 */
+	HashTable & operator=(HashTable &rhs)
+	{
+		if(*this != rhs)
+		{
+
+			m_Size = rhs.m_Size;
+			m_ModCount = rhs.m_ModCount;
+			m_Storage = new HashTableNode<K, V>[HASH_SIZE];
+			memcpy(m_Storage, rhs.m_Storage, sizeof(HashTableNode<K, V>)*HASH_SIZE);
+		}
+
+		return *this;
+	}
+	/**
+	 * destructor
+	 */
+	~HashTable()
+	{
+		delete []m_Storage;
+	}
+	/**
 	 * returns the number of elements in the table
 	 */
 	unsigned long long size(){return m_Size;}
@@ -225,6 +258,22 @@ public:
 		{
 			return h.get(key);
 		}
+		/**
+		 * += update operator
+		 */
+		proxy operator+=(V const &v)
+		{
+			V v_old = h.get(key);
+			V v_new = v_old + v;
+			h.set(key, v_new);
+			return *this;
+		}
+		proxy operator++()
+		{
+			return *this;
+		}
+
+
 		/**
 		 * converter to set the value given by the param
 		 * @param value the value to set by proxy.key
