@@ -16,10 +16,10 @@ Structures Done
 * MinHeap
 * Binary Search Tree
 * HashTable
+* MaxHeap
 
 Structures Planned
 -----------------------
-* MaxHeap
 * Red-Black Tree (this one is taking a HOT minute...)
 * Graph
 * Binomial Heap
