@@ -22,6 +22,10 @@ Structures Planned
 * MaxHeap
 * Red-Black Tree (this one is taking a HOT minute...)
 * Graph
+* Binomial Heap
+* Fibonacci Heap
+* Disjoint Sets
+
 
 
 
@@ -30,8 +34,6 @@ The planned list will probably grow as I see more interesting things I want to a
 
 KNOWN BUGS / ISSUES
 -----------------------
-* in the heap structure, I have not tested if it is reusable as far as multipt insert and remove mins interleaved
-* remove() is not implemented for the BST nor is height();
 * I'm sure I will find more!
 
 CLOSED BUGS / ISSUES
@@ -40,7 +42,7 @@ CLOSED BUGS / ISSUES
 * Removed all the compiler warnings at this moment [closed 10/15/2014]
 * Added copy constructors and assignment operarators to all the "done" classes. [closed 11/12/2014]
 * Fixed destructor bug in the HashTable where I was not releasing memory [closed 11/12/2014]
-
+* Added height() and remove() to the BST implementation [closed 12/08/2014]
 
 
 

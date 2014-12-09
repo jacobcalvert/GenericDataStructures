@@ -102,52 +102,57 @@ public:
 		else return find(data, m_Root);
 	}
 	/**
-	 * NOT IMPL'D
+	 * removes the first instance of the specified element
+	 * returns false if the item is not in the tree
+	 * @param data the item to be removed
 	 */
 	bool remove(T data)
 	{
 		TreeNode<T> * node = find_node(data);
-		if(!node)return false;
+		if(!node)
+		{
+			return false;
+		}
 		else return remove(node);
 	}
 	bool remove(TreeNode<T>*node)
 	{
-		GeneralTreeException e("Method not implemented.");
-		throw e;
 		if(node  && node->valid)
 		{
 			if(node->num_children() == 0)
 			{
-				node->valid = false; //esseintially just nullifying it
+				node->valid = false; //Essentially just nullifying it
 			}
 			else if(node->num_children() == 1)
 			{
+				TreeNode<T>* parent = (node->parent)?node->parent:m_Root;
 				if(node->left->valid)//has only a left child
 				{
-
-					if(node->parent->left == node)
+					if(parent->left == node)
 					{
 						//we are left child
-						node->parent->left = node->left;
+						parent->left = node->left;
 					}
 					else
 					{
-						node->parent->right = node->left;
+						parent->right = node->left;
 					}
-					node->left->parent = node->parent;
+					node->left->parent = parent;
 				}
 				else
 				{
-					if(node->parent->left == node)
+					TreeNode<T>* parent = (node->parent)?node->parent:m_Root;
+					if(parent->left == node)
 					{
 						//we are left child
-						node->parent->left = node->right;
+						parent->left = node->right;
 					}
 					else
 					{
-						node->parent->right = node->right;
+						parent->right = node->right;
 					}
-					node->right->parent = node->parent;
+					node->right->parent = parent;
+
 				}
 			}
 			else
@@ -192,13 +197,19 @@ public:
 		return m_Size;
 	}
 	/**
-	 * NOT IMPL'D
+	 * returns the height of the BST by recursing the left and right children
 	 */
 	long long height()
 	{
-		GeneralTreeException e("Method not implemented.");
-		throw e;
-		return 0; //not impld yet
+		if(m_Size <= 1)
+		{
+			return 0;
+		}
+		else
+		{
+			long long h = height(m_Root);
+			return h;
+		}
 	}
 	/**
 	 * returns an array containing the preorder traversal of the tree
@@ -278,6 +289,19 @@ private:
 		postorder(node->left);
 		postorder(node->right);
 		m_InOrder[m_Indexer++] = node->data;
+	}
+	long long height(TreeNode<T> * node)
+	{
+		long long right = 0, left = 0;
+		if(node->left && node->left->valid)
+		{
+			left = height(node->left);
+		}
+		if(node->right && node->right->valid)
+		{
+			right = height(node->right);
+		}
+		return (((left > right)?left:right) + 1);
 	}
 	bool find(T data, TreeNode<T> *node)
 	{

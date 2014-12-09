@@ -1,7 +1,7 @@
 #ifdef _DEBUG
 #define DEBUG 1
 #else
-#define DEBUG 1
+#define DEBUG 0
 #endif
 
 class huff_node
@@ -26,6 +26,7 @@ bool test_queue();
 bool test_stack();
 bool test_list();
 bool test_minheap();
+bool test_maxheap();
 bool test_redblack();
 bool test_bst();
 bool test_hashtable();

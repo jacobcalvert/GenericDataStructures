@@ -102,6 +102,27 @@ bool test_queue()
 
 	return true;
 }
+bool test_maxheap()
+{
+	MaxHeap<int> maxheap;
+	int lim = 1000;
+	for(int i = 0;i < lim; i++)
+	{
+		maxheap.insert(rand() % lim  + (rand() < (RAND_MAX/8)?-lim/10:lim));
+	}
+	int *max_sort = new int[maxheap.size()];
+	int i = 0;
+	while(maxheap.size())
+	{
+		max_sort[i++] = maxheap.remove_max();
+	}
+	i = 1;
+	for(int i = 1; i < lim; i++)
+	{
+		if(max_sort[i] > max_sort[i-1])return false;
+	}
+	return true;
+}
 bool test_minheap()
 {
 	srand(time(NULL));
@@ -127,6 +148,14 @@ bool test_minheap()
 
 		printf("get nth = %lld\n", minheap.get_nth(15));
 	}
+
+	MinHeap<int> heap2;
+	for(int i = 0; i < 1000; i ++)
+	{
+		heap2.insert(i);
+		while(heap2.size()>50)heap2.remove_min();
+	}
+
 	return true;
 }
 bool test_stack()
@@ -341,12 +370,13 @@ bool test_redblack()
 bool test_bst()
 {
 	BinarySearchTree<int> bst;
-	int lim = 1000, i;
+	int lim = 1024, i;
 	srand(time(NULL));
 	for(i = 0; i < lim; i ++)
 	{
 		bst.insert(rand() % lim + 1);
 	}
+	if(bst.size() != lim)return false;
 	int *sorted = bst.inorder();
 	for(i = 1; i < lim; i++ )
 	{
@@ -361,11 +391,25 @@ bool test_bst()
 	{
 		if(sorted[i-1] > sorted[i]){return false;}
 	}
+	BinarySearchTree<int> bst2;
+	bst2.insert(6);
+	bst2.insert(3);
+	bst2.insert(8);
+	bst2.insert(2);
+	bst2.insert(0);
+	bst2.insert(10);
+	bst2.insert(5);
+	bst2.insert(1);
+	bst2.insert(4);
+	bst2.insert(7);
+	bst2.insert(9);
+
+
 	i = 0;
-	/*while(bst.size() >= 10)
+	while(bst.size())
 	{
 		bst.remove(sorted[i++]);
-	}*/
+	}
 	return true;
 }
 bool test_hashtable()
@@ -561,8 +605,9 @@ bool test_all()
 	printf("Test Queue: %s\n",  test_queue()?"PASS":"FAIL");
 	printf("Test List:  %s\n",  test_list()?"PASS":"FAIL");
 	printf("Test MinHeap: %s\n",test_minheap()?"PASS":"FAIL");
+	printf("Test MaxHeap: %s\n",test_maxheap()?"PASS":"FAIL");
 	printf("Test RedBlack: %s\n", /*test_redblack()*/false?"PASS":"FAIL");
-	//printf("Test BST: %s\n", test_bst()?"PASS":"FAIL");
+	printf("Test BST: %s\n", test_bst()?"PASS":"FAIL");
 	printf("Test HashTable: %s\n",test_hashtable()?"PASS":"FAIL");
 	printf("Test Tuple: %s\n",test_tuple()?"PASS":"FAIL");
 	if(DEBUG)functional_tests();
